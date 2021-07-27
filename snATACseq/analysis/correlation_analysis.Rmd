@@ -1,0 +1,242 @@
+---
+title: "Analyse Correlations"
+author: "Saskia Freytag"
+date: "22/03/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(ComplexHeatmap)
+library(gridExtra)
+library(viridis)
+library(org.Hs.eg.db)
+library(cba)
+library(clusterProfiler)
+```
+
+## Load data
+
+```{r}
+pearson_corr <- readRDS("snATACseq/processed_data/pearson_corr.RDS")
+pearson_corr_background <- readRDS("snATACseq/processed_data/pearson_corr_background.RDS")
+```
+
+```{r}
+txdb <- makeTxDbFromGFF("annotation/genes.gtf", format = "gtf")
+seqlevelsStyle(txdb) <- "UCSC"
+```
+
+## Find threshhold and plot distribution
+
+```{r}
+nn <- 0.025*nrow(pearson_corr_background)
+thresh <- sort(abs(pearson_corr_background$Correlation), decreasing = T)[nn+1]
+```
+
+```{r}
+set.seed(4)
+dat <- data.frame(Correlation=c(sample(abs(pearson_corr$Correlation), 
+    nrow(pearson_corr_background)), abs(pearson_corr_background$Correlation)),
+    Group=c(rep("Real", nrow(pearson_corr_background)), rep("Background", 
+    nrow(pearson_corr_background))))
+
+ggplot(dat, aes(x=Correlation, fill=Group)) + geom_density(alpha=0.4) +
+    geom_vline(xintercept=thresh, linetype="dashed") + theme_classic() +
+    annotate("text", label = paste0("threshold=", round(thresh,2)), x = thresh+0.15, y = 4)
+
+```
+
+```{r}
+set.seed(4)
+dat <- data.frame(Correlation=c(sample(pearson_corr$Correlation, 
+    nrow(pearson_corr_background)), pearson_corr_background$Correlation),
+    Group=c(rep("Real", nrow(pearson_corr_background)), rep("Background", 
+    nrow(pearson_corr_background))))
+
+ggplot(dat, aes(x=Correlation, fill=Group)) + geom_density(alpha=0.4) +
+    geom_vline(xintercept=thresh, linetype="dashed") + theme_classic() +
+    annotate("text", label = paste0("threshold=", round(thresh,2)), x = thresh+0.20, y = 4)
+
+```
+
+# Find significant peak gene correlations
+
+```{r}
+pearson_corr_sig <- pearson_corr[(pearson_corr$FDR<0.05 &
+                 abs(pearson_corr$Correlation)>thresh), ]
+nrow(pearson_corr_sig)/nrow(pearson_corr)*100
+
+nrow(pearson_corr_sig)
+```
+
+```{r}
+length(unique(pearson_corr_sig$peak_name))
+
+length(reduce(GRanges(seqnames = pearson_corr_sig$seqnames,
+    IRanges(start=pearson_corr_sig$start, end=pearson_corr_sig$end))))
+```
+
+# Make plot for number of genes per peak
+
+```{r}
+dat <- as.data.frame(table(pearson_corr_sig$Gene))
+dat <- dat[!dat$Freq==0,]
+
+ggplot(dat, aes(x=Freq)) + geom_histogram(bins=100) + theme_classic()
+```
+
+# Number of peaks per gene
+
+```{r}
+peaks_per_gene <- split(pearson_corr_sig$peak_name, pearson_corr_sig$Gene)
+
+find_number_unique_peaks <- function(x, pearson_corr_sig) {
+    
+    ind <- match(x, pearson_corr_sig$peak_name)
+    gr <- GRanges(seqnames = pearson_corr_sig$seqnames[ind],
+    IRanges(start=pearson_corr_sig$start[ind], end=pearson_corr_sig$end[ind]))
+    gr <- reduce(gr)
+    return(length(gr))
+    
+}
+
+no_peaks_genes <- mclapply(peaks_per_gene, function(x) find_number_unique_peaks(x, 
+    pearson_corr_sig), mc.cores=3)
+
+median(unlist(no_peaks_genes))
+
+hist(unlist(no_peaks_genes), breaks=30)
+```
+
+
+# Distance from TSS
+
+```{r, echo=FALSE}
+pearson_corr_sig <- readRDS("snATACseq/processed_data/pearson_corr_sig.RDS")
+```
+
+
+```{r}
+ggplot(pearson_corr_sig , aes(x=dist+1)) + geom_histogram(bins=100) + 
+    theme_classic() + scale_x_log10()
+```
+
+# More cell type specific analysis
+
+```{r}
+pearson_corr_sig$Cell_Type <- sapply(pearson_corr_sig$peak_name, function(x)
+    strsplit(x, ".", fixed=T)[[1]][1]) 
+
+sapply(split(pearson_corr_sig$Correlation, pearson_corr_sig$Cell_Type),
+       function(x) mean(x))
+
+sapply(split(pearson_corr_sig$Gene, pearson_corr_sig$Cell_Type),
+       function(x) length(unique(x)))
+```
+
+```{r}
+cell_types <- c("Astro", "CGE_der", "L2_3", "L4", "L5_6", "MGE_der",
+    "Micro", "Oligo", "Vas")
+dat <- lapply(cell_types, function(x) as.data.frame(table(
+    pearson_corr_sig$Gene[pearson_corr_sig$Cell_Type==x])))
+for(i in 1:length(dat)){
+    dat[[i]]$Cell_Type <- cell_types[i]
+}
+dat <- do.call(rbind, dat)
+dat <- dat[!dat$Freq==0,]
+
+ggplot(dat, aes(x=Freq, fill=Cell_Type)) + geom_histogram(bins=100) + 
+    theme_classic()
+```
+
+```{r}
+ggplot(pearson_corr_sig , aes(x=dist+1, fill=Cell_Type)) + 
+    geom_histogram(bins=100) + 
+    theme_classic() + scale_x_log10()
+```
+
+# Make correlation plot
+
+```{r}
+plot_list <- readRDS("processed_data/plot_atac_rna_corr.RDS")
+set.seed(20)
+ind <- sample(1:nrow(plot_list$atac), 500)
+plot_list$atac <- plot_list$atac[ind,]
+plot_list$rna <- plot_list$rna[ind,]
+
+dat_rna <- t(apply(plot_list$rna, 1, function(x) scale(x)))
+dat_atac <- t(apply(plot_list$atac,1, function(x) scale(x)))
+hc <- hclust(dist(dat_rna))
+order_row <- order.optimal(dist(dat_rna), hc$merge)
+#order_row <- order.greedy(dist(dat_rna))
+my_hclust_gene <- order_row$order
+hc <- hclust(dist(t(dat_rna[my_hclust_gene,])))
+order_col <- order.optimal(dist(t(dat_rna[my_hclust_gene,])), hc$merge)
+#order_col <- order.greedy(dist(t(plot_list$rna[my_hclust_gene,])))
+my_hclust_cell <- order_col$order
+
+dat_rna <- dat_rna[my_hclust_gene, my_hclust_cell]
+dat_atac <- dat_atac[my_hclust_gene, my_hclust_cell]
+
+col_stages_rna <- viridis(6, direction=1)
+names(col_stages_rna) <- c("Fetal", "Neonatal", "Infancy", "Childhood", 
+                           "Adolescence", "Adult")
+col_types <- c(Astro= '#ffc857', `IN dev`='#c6a785', 
+               `L2_3`= '#6e0614', L4= '#8b3843', `L5_6`='#a86a72',
+               Micro='#484848',OPC='#92afc2', Oligo='#255f85', `PN dev`='#e2cdd0',
+               `MGE_der`='#b44622',`CGE_der`='#1c5701', Vas='#a3a3a3')
+
+ha_left = HeatmapAnnotation(cell = plot_list$info$type[my_hclust_cell],
+    stages = factor(plot_list$info$stages_rna[my_hclust_cell],
+    level=names(col_stages_rna)),
+    annotation_name_side = "left",
+    col = list(stages = col_stages_rna,
+    cell=col_types))
+ha_right = HeatmapAnnotation(cell = plot_list$info$type[my_hclust_cell],
+   stages = factor(plot_list$info$stages_rna[my_hclust_cell],
+   level=names(col_stages_rna)),
+   annotation_name_side = "right",
+   col = list(stages = col_stages_rna,
+   cell=col_types))
+
+Heatmap(dat_rna,  top_annotation = ha_left,
+        cluster_columns = FALSE, cluster_rows = FALSE, show_row_names = F,
+        show_column_names = F, name = "scRNAseq") +
+Heatmap(dat_atac, top_annotation = ha_right,
+        cluster_columns = FALSE, cluster_rows = FALSE, show_row_names = F,
+        show_column_names = F, name="scATACseq")
+```
+
+# Investigate gene with many CRE elements 
+
+```{r}
+all_genes <- split(1:nrow(pearson_corr_sig), pearson_corr_sig$Gene)
+nr_peaks_genes <- lapply(all_genes, function(x) reduce(GRanges(
+    seqnames = pearson_corr_sig$seqnames[x],
+    IRanges(start=pearson_corr_sig$start[x], 
+    end=pearson_corr_sig$end[x]))))
+summary(lengths(nr_peaks_genes))
+
+genes_many_cre <- names(nr_peaks_genes)[lengths(nr_peaks_genes)>=10]
+genes_many_cre <- AnnotationDbi::select(org.Hs.eg.db, keys=genes_many_cre,
+    columns="ENTREZID", keytype="ENSEMBL")[,2]
+genes_many_cre  <- genes_many_cre [!is.na(genes_many_cre)]
+genes_background <- AnnotationDbi::select(org.Hs.eg.db, keys=names(all_genes), 
+    columns="ENTREZID", keytype="ENSEMBL")[,2]
+genes_background  <- genes_background[!is.na(genes_background)]
+
+go_bp <- enrichGO(gene= genes_many_cre,
+    universe = genes_background,
+    OrgDb = org.Hs.eg.db,
+    ont  = "BP",
+    pAdjustMethod = "BH",
+    pvalueCutoff = 0.05,
+    qvalueCutoff  = 0.05,
+    readable = TRUE)
+
+go_bp@result[go_bp@result$p.adjust<0.05,]
+
+```

@@ -1,0 +1,47 @@
+# History files
+.Rhistory
+.Rapp.history
+*.Rproj
+# Session Data files
+.RData
+# User-specific files
+.Ruserdata
+# Example code in package build process
+*-Ex.R
+# Output files from R CMD build
+/*.tar.gz
+# Output files from R CMD check
+/*.Rcheck/
+# RStudio files
+.Rproj.user/
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+# R Environment Variables
+.Renviron
+.Rproj.user
+.DS_Store
+# Supp tables
+supp_table/**
+# Directories in snATACseq
+snATACseq/processed_data/**
+snATACseq/other_analysis/**
+snATACseq/analysis/*.html
+# Directories in snRNAseq
+snRNAseq/processed_data/**
+# Files in annotation gtf file
+annotation/genes.gtf
+annotation/hsapiens.GO:BP.name.gmt
+# Files in paper_figures 
+paper_figures/*.png
+paper_figures/*.pdf
+paper_figures/*.svg
+paper_figures/pie_charts/**
+# Files in supp_figures
+supp_figures/*.png
+supp_figures/*.svg
+supp_figures/*.pdf
+supp_figures/SuppFig2_AnnotationCluster/**
+supp_figures/SuppFig6_ensheatment/**
+# htmls
+*.html

@@ -1,0 +1,60 @@
+---
+title: "Information about peaks"
+author: "Saskia Freytag"
+date: "10/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rtracklayer)
+```
+
+```{r}
+peaks <- readRDS("snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+all_peaks <- unlist(as(peaks, "GRangesList"))
+all_peaks <- reduce(all_peaks)
+
+length(all_peaks)
+```
+
+## Shared between all cell types
+
+```{r cars}
+ind_all <- lapply(peaks, function(x) unique(findOverlaps(x, all_peaks)@to))
+tab_all <- table(unlist(ind_all))
+
+in_all <- sum(tab_all==9)/length(all_peaks)*100
+in_half <- sum(tab_all>=4)/length(all_peaks)*100
+in_two <- sum(tab_all>=2)/length(all_peaks)*100
+unique_celltype <- sum(tab_all==1)/length(all_peaks)*100
+```
+
+Roughly `r round(in_all, 2)`\% OCRs are found in all cell types, roughly 
+`r round(in_half, 2)`\% OCRs are found in 4 or more cell types and roughly
+`r round(in_two, 2)`\% OCRs are found in 2 or more cell types.
+
+Roughly `r round(unique_celltype, 2)` \% OCRs are unique to a celltype.
+
+## Shared between developmental stages
+
+```{r}
+stages <- c("Fetal", "Neonatal", "Infancy", "Childhood", "Adolescence", "Adult")
+peaks_ind <- lapply(peaks, function(x) 
+    apply(x@elementMetadata[,stages], 1, function(y)
+    sum(y))==0)
+in_stages <- lapply(1:length(peaks), function(x) 
+    apply(peaks[[x]]@elementMetadata[!peaks_ind[[x]],stages], 1, function(y)
+    sum(y)))
+
+in_all <- mean(sapply(in_stages, function(x) sum(x==max(x))/length(x)))*100
+in_half <- mean(sapply(in_stages, function(x) sum(x>=3)/length(x)))*100
+unique_stage <-  mean(sapply(in_stages, function(x) sum(x==1)/length(x)))*100
+```
+
+On average, roughly `r round(in_all, 2)`\% OCRs are found in all stages in a cell type, 
+roughly `r round(in_half, 2)`\% OCRs are found in 3 or more stages in a cell 
+type.
+
+On average, roughly `r round(unique_stage, 2)` \% OCRs are unique to a stage in
+a cell type.

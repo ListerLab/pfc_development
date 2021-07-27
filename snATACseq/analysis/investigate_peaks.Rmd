@@ -1,0 +1,283 @@
+---
+title: "Investigating peaks"
+author: "Saskia Freytag"
+date: "16/03/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rtracklayer)
+library(ggplot2)
+library(reshape2)
+library(cowplot)
+library(dplyr)
+library(corrplot)
+library(viridis)
+library(jaccard)
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(scater)
+```
+
+## Load peaks
+
+```{r}
+processed_data <- readRDS(file=
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_dge_stage_gr.Rds")
+```
+
+## Investigate peak length
+
+First do it for all peaks together.
+
+```{r}
+all_peaks <- as(processed_data, "GRangesList")
+all_peaks <- unlist(all_peaks, recursive = TRUE)
+
+dat <- data.frame(id=names(all_peaks), width=width(all_peaks),
+    cell_type=sapply(names(all_peaks), function(x) 
+    strsplit(x, ".", fixed=T)[[1]][1]))
+
+ggplot(dat, aes(x=width)) + geom_histogram(bins=100) + theme_classic() +
+    ggtitle("All peaks") + scale_x_log10()
+
+median(dat$width)
+```
+
+Now do by cell type.
+
+```{r, fig.width=7, fig.height=10}
+ggplot(dat, aes(x=width)) + geom_histogram(bins=100) + theme_classic() +
+    facet_wrap(vars(cell_type), nrow=5,ncol=2) + scale_x_log10()
+```
+
+## Annotation
+
+```{r}
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+chromInfo <- seqinfo(txdb)
+chromRanges <- GRanges(seqnames(chromInfo), 
+    IRanges(start = 1, end = seqlengths(chromInfo)))
+
+# Create a GRanges object containing the merged exon ranges
+exonRanges <- exons(txdb)
+exonRanges <- reduce(exonRanges)
+
+# Get the widths of the exon and chromosome ranges
+exonWidths <- width(exonRanges)
+chromWidths <- width(chromRanges)
+
+# Calculate the total width of the exon and chromosome ranges
+exonTotal <- sum(exonWidths)
+chromTotal <- sum(chromWidths)
+
+# Calculate the percentage of exonic nucleotides
+pctExon <- (exonTotal / chromTotal) * 100
+
+transcripts <- transcripts(txdb)
+
+# Exon regions
+exons <- exons(txdb)
+strand(exons) <- "*"
+exons <- reduce(exons)
+
+# Intron regions
+introns <- intronsByTranscript(txdb)
+introns <- unlist(introns)
+strand(introns) <- "*"
+introns <- reduce(introns)
+
+# 5 prime UTR
+utr5 <- fiveUTRsByTranscript(txdb)
+utr5 <- unlist(utr5)
+strand(utr5) <- "*"
+utr5 <- reduce(utr5)
+
+# 3 prime UTR
+utr3 <- threeUTRsByTranscript(txdb)
+utr3 <- unlist(utr3)
+strand(utr3) <- "*"
+utr3 <- reduce(utr3)
+
+# CDS regions
+cds <- cds(txdb)
+strand(cds) <- "*"
+cds <- reduce(cds)
+
+# Gene regions
+genes <- genes(txdb)
+strand(genes) <- "*"
+genes <- reduce(genes)
+
+# Promoter regions
+promoters <- promoters(txdb, upstream = 500, downstream = 100)
+promoters <- reduce(promoters)
+strand(promoters) <- "*"
+
+# Intergenic regions (Credit to Vince Buffalo and his book for this one)
+tx <- reduce(transcripts)
+strand(tx) <- "*"
+intergenic <- GenomicRanges::setdiff(chromRanges, tx)
+intergenic <- reduce(intergenic)
+
+#collect everything in one list
+all_annos <- list(exons=exons, introns=introns, utr5=utr5, utr3=utr3, cds=cds,
+    promoters=promoters, intergenic=intergenic)
+```
+
+```{r}
+enrich <- function(peaks, all_annos, chromTotal){
+
+    res <- sapply(all_annos, function(y)
+        c(observed=sum(width(GenomicRanges::intersect(peaks, y)))/sum(width(peaks))*100,
+        expected=sum(width(y))/chromTotal*100))
+
+    res <- melt(res)
+    colnames(res) <- c("Group", "Region", "Percentage")
+    res$width <- 0.8
+    res$width[res$Group=="observed"] = 0.6
+    res <- res[rev(order(res$Group)),]
+    res$alpha <- 1
+    res$alpha[res$Group=="expected"] = 0.6
+    
+    return(res)
+}
+
+enrich_plot <- function(res, title){
+    
+    g1 <- ggplot(res, aes(x=Percentage, y=Region, 
+    group=Group, fill=Group)) + 
+    geom_bar(stat="identity",
+    position = "identity",width =res$width, alpha=res$alpha) +
+    scale_fill_manual(values=c(expected="grey", observed="#17becf" )) +
+    theme_classic() + ggtitle(title)
+    
+    return(g1)
+    
+}
+
+
+res <- lapply(processed_data, function(x) 
+    enrich(x, all_annos, chromTotal))
+
+sapply(1:length(res), function(i) 
+    print(enrich_plot(res[[i]],
+    names(processed_data)[i])))
+```
+
+```{r}
+res_all <- res[[1]]
+res_all[,3] <- apply(sapply(res, function(x) x[,3]), 1, mean)
+
+enrich_plot(res_all,"All peaks")
+```
+
+
+## Distance to TSS
+
+```{r}
+dist_to_tss <- function(peak_set, txdb, title){
+    
+    gens <- genes(txdb)
+    dist_gene <- distanceToNearest(peak_set, gens, 
+            ignore.strand=TRUE)
+    
+    res <- data.frame(distance_tss=dist_gene@elementMetadata$distance+1)
+   
+    g1 <- ggplot(res, aes(x=distance_tss)) + 
+        geom_histogram() + scale_x_log10() +
+        theme_classic() + ggtitle(title)
+    
+    return(g1)
+
+}
+
+dist_to_tss(all_peaks, txdb, "All_peaks")
+
+sapply(1:length(processed_data), function(i) 
+    print(dist_to_tss(processed_data[[i]], txdb, 
+    names(processed_data)[i])))
+
+```
+
+
+## Jaccard plot
+
+```{r}
+stages <- c("Fetal", "Neonatal", "Infancy", "Childhood", "Adolescence", "Adult")
+
+
+for(i in 1:length(processed_data)){
+
+    tmp <- processed_data[[i]]@elementMetadata[,stages]
+    tmp <- tmp[processed_data[[i]]$DEG,]
+    aa <- ncol(tmp)
+    
+    mat <- sapply(1:aa, function(rr) sapply(1:aa, function(cc)
+        jaccard(tmp[,rr], tmp[,cc])))
+    mat[which(is.na(mat), arr.ind = TRUE)] <- 0
+    colnames(mat) <- rownames(mat) <- colnames(tmp)
+    diag(mat) <- 1
+    print(corrplot(mat, method="color",  rect.col = "white", tl.col = "black",
+        col=c(magma(256), magma(256)), is.corr = FALSE, cl.lim=c(0,1),
+        diag=FALSE, title=names(processed_data)[i],tl.cex=0.8,mar=c(0,0,1,0)))
+        
+}
+
+```
+
+See how many peaks are called for each stage
+
+```{r}
+num_peaks <- list()
+
+for(i in 1:length(processed_data)){
+
+    tmp <- processed_data[[i]]@elementMetadata[,stages]
+    tmp <- tmp[processed_data[[i]]$DEG,]
+    if(nrow(tmp)==0){
+        num_peaks[[i]] <- 0
+    } else {
+        tmp <- apply(tmp, 2, function(x) as.numeric(x))
+        num_peaks[[i]] <- colSums(tmp)
+    }
+    
+}
+
+num_peaks <- do.call(cbind, num_peaks)
+colnames(num_peaks) <- names(processed_data)
+
+as.data.frame(num_peaks)
+```
+
+Also import number of cells per sample per cell type.
+
+```{r}
+num_cells <- read.csv("annotation/Number_cells_sample_celltype.csv")
+anno <- readxl::read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
+
+num_cells$Stage <- anno$Stage[match(num_cells$X, anno$Sample)]
+
+num_cells[,c("X", "Stage", "CGE.der", "L2.3", "L4", "L5.6", "MGE.der", "Micro",
+             "Oligo", "OPC", "Vas", "Stage" )]
+```
+
+
+## Width by expression of nearest gene
+
+```{r}
+sce <- readRDS("snRNAseq/processed_data/2020-12-18_whole-tissue_post-restaged-GABA-clustering.RDS")
+
+for(i in 1:length(processed_data)){
+    
+    peak_tmp <- processed_data[[i]][processed_data[[i]]$DEG]
+    ind <- match(peak_tmp$nearestGene, rowData(sce)$gene_ids)
+    dat <- data.frame(width=width(peak_tmp),
+    average=rowData(sce)$mean_counts[ind])
+
+    g1 <-ggplot(dat, aes(x=width, y=average)) + geom_point() + theme_minimal() +
+        scale_x_log10() + geom_smooth() + ggtitle(names(processed_data)[i])
+    print(g1)
+}
+                  
+```
