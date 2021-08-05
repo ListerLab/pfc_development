@@ -4,11 +4,12 @@ library(SingleCellExperiment)
 library(Polychrome)
 library(rcartocolor)
 library(ggplot2)
+library(readxl)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
 ## Figure unfiltered UMAP plot
 
-save_objs <- readRDS("../UMAP_GeneScore_all.rds")
+save_objs <- readRDS("snATACseq/processed_data/UMAP_GeneScore_all.rds")
 atac_samples <- read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
 atac_samples <- atac_samples[atac_samples$Used=="Yes",]
 
@@ -21,31 +22,9 @@ df$Cluster <- save_objs[[2]]$Clusters
 df$DoubletScores <- save_objs[[2]]$DoubletScore
 df$TSSEnrichment <- save_objs[[2]]$TSSEnrichment
 colnames(df)[1:2] <- c("UMAP1", "UMAP2")
-cell_types <- c(C1="Low quality",C2="Low quality",C3="Low quality",
-    C4="Low quality", C5="Low quality", C6="Low quality",
-    C7="Low quality", C8="Low quality", C9="Astro", C10="Low quality",
-    C11="Astro", C12="Astro", C13="Astro",C14="Astro", C15= "Astro",
-    C16="Low quality",C17="Astro", C18="Astro",C19="Astro",C20="Low quality",
-    C21="Astro",C22="Low quality",C23="Astro",C24="Micro",
-    C25="Micro",C26="Micro", C27="Micro",C28="Micro",C29="Low quality",
-    C30="L4", C31="L4",
-    C32="L4", C33="L4",C34="L2/3", C35="L4", C36="L2/3",
-    C37="PN dev", C38="Low quality", C39="Low quality", C40="L5/6", 
-    C41= "L2/3",
-    C42="MGE der", C43="MGE der", C44="MGE der", C45="CGE der",
-    C46="CGE der", C47="L5/6", C48="Low quality",
-    C49="L2/3", C50="L2/3", C51="L2/3", C52="Vas",
-    C53="CGE der", C54="IN dev", C55="IN dev", C56="IN dev",
-    C57="Low quality", C58="PN dev", C59="PN dev", C60="PN dev", 
-    C61="PN dev", C62="L5/6", C63="L5/6", C64="L5/6",
-    C65="Oligo",  C66="Oligo", C67="Oligo", C68="Oligo", C69= "Oligo",
-    C70="Oligo",C71="OPC", C72="OPC", C73="OPC",
-    C74="OPC", C75="Low quality", C76="OPC", C77="OPC", C78="OPC",
-    C79="OPC", C80="OPC")
-names(cell_types) <- paste0("C", 1:length(cell_types))
-df$Anno <- cell_types[match(df$Cluster, names(cell_types))]
-df <- df[sample(1:nrow(df), nrow(df)),]
+df$Anno <- save_objs[[2]]$Anno
 set.seed(10)
+df <- df[sample(1:nrow(df), nrow(df)),]
 
 ### Annotation
 
@@ -119,7 +98,7 @@ ggsave(g1, file="supp_figures/SuppFig1_DoubletScore.png", height=7, width=7)
 
 ## Figure filtered UMAP plot Supp 2
 
-save_objs <- readRDS("../UMAP_GeneScore_rm.rds")
+save_objs <- readRDS("snATACseq/processed_data/UMAP_GeneScore_rm.rds")
 
 df <- save_objs[[3]]
 df$Sample <- save_objs[[2]]$Sample
@@ -130,40 +109,25 @@ df$Group <- save_objs[[2]]$predictedGroup
 colnames(df)[1:2] <- c("UMAP1", "UMAP2")
 df$Age <- save_objs[[2]]$arcsin_ages
 df$Age <- as.numeric(as.character(df$Age))
-cell_types <- c(C1="Micro",C2="Micro",C3="Micro",
-    C4="Oligo", C5="Oligo", C6="Oligo",
-    C7="Oligo", C8="Oligo", C9="Oligo", C10="MGE der",
-    C11="IN dev", C12="IN dev", C13="L5/6",C14="CGE der", 
-    C15= "MGE der", C16="MGE der", C17="PN dev", C18="PN dev",
-    C19="L2/3", C20="L2/3", C21="L2/3",C22="L4",
-    C23="L4",C24="L4",C25="L4",C26="L4",
-    C27="L2/3", C28="L2/3", C29="L2/3", C30="PN dev", C31="L5/6",
-    C32="L5/6", C33="L5/6",C34="PN dev",C35="PN dev", C36="L5/6",
-    C37="PN dev", C38="L5/6", C39="L5/6", C40="IN dev", 
-    C41= "MGE der", C42="CGE der", C43="CGE der", C44="OPC", 
-    C45="Vas", C46="Astro",C47="Astro", C48="Astro",
-    C49="Astro", C50="Astro", C51="Astro", C52="Astro",
-    C53="Astro", C54="Astro", C55="Astro", C56="Astro",
-    C57="OPC", C58="OPC", C59="OPC", C60="OPC", 
-    C61="OPC", C62="OPC", C63="OPC", C64="OPC",
-    C65="OPC")
+df$Anno <- save_objs[[2]]$Anno1
 
-names(cell_types) <- paste0("C", 1:length(cell_types))
-df$Anno <- cell_types[match(df$Cluster, names(cell_types))]
 df$L5_6 <- grepl("L5/6", df$Group)
 df$L4 <- grepl("L4", df$Group)
 df$L2_3 <- grepl("L2/3|L2|L3", df$Group)
 df$CGE_der <- grepl("VIP|ID2", df$Group)
 df$MGE_der <- grepl("SST|PV", df$Group)
-df$IN_dev <- grepl("ID2_dev|MGE_dev-2|MGE_dev-1|CGE_dev|VIP_dev", df$Group)
+df$IN_dev <- grepl("ID2_dev|MGE_dev-2|MGE_dev-1|CGE_dev|VIP_dev|PV_dev", df$Group)
+df$PN_dev <- grepl("L2/3_CUX2_dev-fetal|PN_dev|L2/3_CUX2_dev-2|L2/3_CUX2_dev-1|VIP_dev", df$Group)
 df$Oligo <- grepl("Oligo", df$Group)
 df$OPC <- grepl("OPC", df$Group)
 df$Astro <- grepl("Astro", df$Group)
 df$Vas <- grepl("Vas", df$Group)
 df$Micro <- grepl("Micro", df$Group)
-df <- df[sample(1:nrow(df), nrow(df)),]
 set.seed(10)
+df <- df[sample(1:nrow(df), nrow(df)),]
 df$Sample <- as.character(df$Sample)
+
+df$UMAP1 <- -df$UMAP1
 
 ### UMAP clusters
 
@@ -273,14 +237,14 @@ plot_lists <- list()
 for(i in cell_types){
     plot_lists[[i]] <- ggplot(df, aes_string(x="UMAP1", y="UMAP2", color=i)) +
         geom_point(alpha=0.5, size=0.2) +
-        theme_classic() + scale_color_viridis_d() + 
+        theme_classic() + scale_color_manual(values=c("black", "red")) + 
         guides(color = guide_legend(override.aes = list(size = 3, alpha=1)))
 }
 
-system(paste0("mkdir ", paths, "cluster_figures"))
+system(paste0("mkdir supp_figures/cluster_figures"))
 
 for(i in cell_types){
-    ggsave(plot_lists[[i]], file=paste0(paths, "supp_figures/cluster_figures/", i, ".png"))
+    ggsave(plot_lists[[i]], file=paste0("supp_figures/cluster_figures/", i, ".png"))
 }
 
 ## Peak quality
