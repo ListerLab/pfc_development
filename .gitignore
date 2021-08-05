@@ -43,6 +43,7 @@ supp_figures/*.svg
 supp_figures/*.pdf
 supp_figures/SuppFig2_AnnotationCluster/**
 supp_figures/cluster_figures/**
+supp_figures/cluster_figures/*.png
 supp_figures/SuppFig6_ensheatment/**
 # htmls
 *.html
