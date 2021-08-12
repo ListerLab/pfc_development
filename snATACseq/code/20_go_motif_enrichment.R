@@ -39,7 +39,7 @@ for(i in 1:length(peaks)){
     peaks[[i]]@elementMetadata$cellType <- names(peaks)[i]
 }
 
-all_gos <- readRDS("snATACseq/processed_data/go_gr.RDS")
+all_gos <- readRDS("snATACseq/processed_data/go_gr_neurotransmitter.RDS")
 
 # 2. enrichment for each cell type
 
@@ -75,6 +75,5 @@ for(i in 1:length(peaks)){
 # 3. save motifs
 
 names(enriched_gos) <- names(peaks)
-saveRDS(enriched_gos, file="snATACseq/processed_data/Gos_tf_all.RDS")
+saveRDS(enriched_gos, file="snATACseq/processed_data/Gos_tf_neurotransmitter.RDS")
 
- 

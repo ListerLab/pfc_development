@@ -7,15 +7,31 @@ library(reshape2)
 tf_expr <- readRDS("snATACseq/processed_data/tf_cell_type_rna.RDS")
 tf_expr <- lapply(tf_expr, function(x) names(x)[x==0])
 all_gos <- readRDS("snATACseq/processed_data/Gos_tf_all.RDS")
+all_gos <- readRDS("snATACseq/processed_data/Gos_tf_neurotransmitter.RDS")
+all_gos <- readRDS("snATACseq/processed_data/Gos_tf_ion.RDS")
+all_gos <- all_gos[!lengths(all_gos)==0]
 
 gos <- c(Ensheatment="GO:0007272", `Cell Cycle`="GO:0007049", 
     `Neuron Migration`="GO:0001764", `Synapse Organization`="GO:0050808",
     `Cytoskeletal Organization`="GO:0051493", Learning="GO:0007612",
     `Cell Death`="GO:0008219", `Ion Transport`="GO:0006811")
 
+gos <- c(`Regulation of neurotransmitter levels`="GO:0001505",
+         `Neurotransmitter secretion`="GO:0007269",
+         `Neurotransmitter transport`="GO:0006836",
+         `Regulation of neurotransmitter secretion`="GO:0046928",
+         `Regulation of neurotransmitter transport`= "GO:0051588",
+         `Regulation of neurotransmitter receptor activity`="GO:0099601",
+         `Neurotransmitter receptor activity`="GO:0030594",
+         `Regulation of postsynaptic membrane neurotransmitter receptor levels`= "GO:0098970",
+         `Neurotransmitter receptor activity involved in regulation of postsynaptic membrane potential`="GO:0099529",
+         `Postsynaptic neurotransmitter receptor activity`="GO:0098960",
+         `Calcium ion-regulated exocytosis of neurotransmitter`="GO:0048791",
+         `Neurotransmitter-gated ion channel clustering`="GO:0072578")
+
 enriched <- list()
 
-for(i in 1:length(gos)){
+for(i in 1:length(all_gos)){
     
     not_exprs <- tf_expr[names(all_gos)[i]]
     tmp_gos <- sapply(names(all_gos[[i]]), function(x) 
@@ -34,7 +50,11 @@ for(i in 1:length(gos)){
         tmp[[j]] <- tmp[[j]][tmp[[j]]$padjust<0.05,]
         tmp[[j]]$feature_short <-  sapply( tmp[[j]]$feature, function(x) 
             strsplit(x, "_", fixed=T)[[1]][1])
-        if(dim(tmp[[j]])==0) next
+        if(dim(tmp[[j]])==0) {
+            print(paste0("Nothing left ", names(all_gos)[i], " ",
+            names(tmp)[j]))
+            next
+        }
         tmp[[j]] <- tmp[[j]][!(tmp[[j]]$feature_short %in% not_exprs),]
     } 
     

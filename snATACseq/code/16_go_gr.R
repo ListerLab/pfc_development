@@ -27,7 +27,7 @@ seqlevelsStyle(txdb) <- "UCSC"
 
 promoters <- promoters(txdb, upstream=2000, downstream=200)
 
-paths <- "snRNAseq/processed_data"
+paths <- "snRNAseq/processed_data/"
 
 gene_trends <- read.csv(paste0(paths, "gene_cluster_ids.csv"))
 gene_trends$cluster_trend <- paste0(gene_trends$major_clust, ".", 
@@ -39,7 +39,7 @@ peaks <- readRDS(
 sce <- readRDS(paste0(paths,
     "/2020-12-18_whole-tissue_post-restaged-GABA-clustering.RDS"))
 gene_trends$gene_name <- rowData(sce)$gene_ids[match(gene_trends$gene_name, 
-                                                     rownames(sce))]
+                  rownames(sce))]
 
 # 2. remove all promoters regions
 
@@ -72,6 +72,20 @@ gos <- c(Ensheatment="GO:0007272", `Cell Cycle`="GO:0007049",
     `Neuron Migration`="GO:0001764", `Synapse Organization`="GO:0050808",
     `Cytoskeletal Organization`="GO:0051493", Learning="GO:0007612",
     `Cell Death`="GO:0008219", `Ion Transport`="GO:0006811")
+gos <- c(`Regulation of neurotransmitter levels`="GO:0001505",
+         `Neurotransmitter secretion`="GO:0007269",
+         `Neurotransmitter transport`="GO:0006836",
+         `Regulation of neurotransmitter secretion`="GO:0046928",
+         `Regulation of neurotransmitter transport`= "GO:0051588",
+        `Regulation of neurotransmitter receptor activity`="GO:0099601",
+        `Neurotransmitter receptor activity`="GO:0030594",
+        `Regulation of postsynaptic membrane neurotransmitter receptor levels`= "GO:0098970",
+        `Neurotransmitter receptor activity involved in regulation of postsynaptic membrane potential`="GO:0099529",
+        `Postsynaptic neurotransmitter receptor activity`="GO:0098960",
+        `Calcium ion-regulated exocytosis of neurotransmitter`="GO:0048791",
+        `Neurotransmitter-gated ion channel clustering`="GO:0072578")
+go_ids <- read_sheet("https://docs.google.com/spreadsheets/d/1r8pT2qbAJBAHDmZm9Z5XiK2bE-58FkHsk-0fx0mcAaw/edit#gid=405400568")
+go_ids <- list("Ion"=go_ids$`Gene symbol`)
 ind <- which(names(go_terms) %in% gos)
 go_ids <- go_terms[ind]
 go_ids <- lapply(go_ids, function(x)
@@ -94,6 +108,7 @@ genes_cluster_trends <- lapply(go_ids, function(x) lapply(genes_cluster_trends,
     function(y) intersect(x,y)))
 genes_cluster_trends <- lapply(genes_cluster_trends, function(x)
     x[!lengths(x)<10])
+genes_cluster_trends <- genes_cluster_trends[!lengths(genes_cluster_trends)==0]
 
 # 5. get regions
 
@@ -125,7 +140,7 @@ cre_trends <- unlist(cre_trends, recursive = FALSE)
 
 # 6. save regions
 
-saveRDS(cre_trends, file="snATACseq/processed_data/go_gr.RDS")
+saveRDS(cre_trends, file="snATACseq/processed_data/go_gr_ion.RDS")
 
 
 

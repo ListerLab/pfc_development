@@ -87,7 +87,7 @@ ind_PN_up <- match(names(table_up_PN), markers_PN$Symbol)
 markers_PN$up_ind <- NA
 markers_PN$up_ind[ind_PN_up] <- table_up_PN
 
-write.table(markers_PN, file="snATACseq/processed_data/Organoids_PN_markers.csv",
+write.table(markers_PN, file="snRNAseq/processed_data/Organoids_PN_markers.csv",
             quote=F, sep=",")
 
 IN_cat <- rep(NA, ncol(all_sce))
@@ -104,7 +104,7 @@ ind_IN_up <- match(names(table_up_IN), markers_IN$Symbol)
 markers_IN$up_ind <- NA
 markers_IN$up_ind[ind_IN_up] <- table_up_IN
 
-write.table(markers_IN, file="snATACseq/processed_data/Organoids_IN_markers.csv",
+write.table(markers_IN, file="snRNAseq/processed_data/Organoids_IN_markers.csv",
     quote=F, sep=",")
 
 

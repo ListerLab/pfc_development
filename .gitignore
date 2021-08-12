@@ -47,3 +47,4 @@ supp_figures/cluster_figures/*.png
 supp_figures/SuppFig6_ensheatment/**
 # htmls
 *.html
+*.pdf
