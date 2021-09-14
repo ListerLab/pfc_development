@@ -8,8 +8,21 @@ life_expectancy1$probability <- life_expectancy1$lives/sum(life_expectancy1$live
 life_expectancy2 <- life_expectancy[life_expectancy$ages>=18 & life_expectancy$ages<=79,]
 life_expectancy2$probability <- life_expectancy2$lives/sum(life_expectancy2$lives)
 
+atac <- read_xlsx("annotation/Single cell studies database-Specifics.xlsx", sheet=2)
+atac$Age <- as.numeric(atac$Age)
+atac_fetal <- atac[atac$Fetal=="Yes",]
+atac_postnatal <- atac[atac$Fetal=="No",]
 
-postnatal <- read_xlsx("annotation/Single cell studies database-Specifics.xlsx", sheet=2)
+gg_fetal_atac <- ggplot(atac_fetal, aes(x=`Age`)) + 
+    geom_histogram(bins=34, fill="#512568") + 
+    xlim(3,38) + ylim(0,16) + theme_classic() + xlab("Age (pwc)") 
+ggsave(gg_fetal_atac, file="supp_figures/fetal_studies_atac.svg", height=1.68, width=2.96)
+
+gg_adult_atac <- ggplot(atac_postnatal, aes(x=`Age`)) + geom_histogram(bins=83, fill="#F9E51B") + 
+    xlim(20,102) + theme_classic() + ylim(0,15) +  xlab("Age (years)") 
+ggsave(gg_adult_atac, file="supp_figures/adult_studies_atac.svg", height=1.68, width=2.96)
+
+postnatal <- read_xlsx("annotation/Single cell studies database-Specifics.xlsx", sheet=3)
 ind  <- which(postnatal$Years=="90+")
 ind1 <- which(postnatal$Years=="18-79")
 set.seed(14)
@@ -24,7 +37,7 @@ fetal$`Age (pcw)` <- as.numeric(as.character(fetal$`Age (pcw)`))
 
 gg_fetal <- ggplot(fetal, aes(x=`Age (pcw)`)) + 
     geom_histogram(bins=34, fill="#512568") + 
-    xlim(5,38) + ylim(0,15) + theme_classic() 
+    xlim(3,38) + ylim(0,16) + theme_classic() 
 ggsave(gg_fetal, file="supp_figures/fetal_studies.svg", height=1.68, width=2.96)
 
 child <- postnatal[postnatal$Years>1 & postnatal$Years<10,]

@@ -75,5 +75,5 @@ for(i in 1:length(peaks)){
 # 3. save motifs
 
 names(enriched_gos) <- names(peaks)
-saveRDS(enriched_gos, file="snATACseq/processed_data/Gos_tf_neurotransmitter.RDS")
+saveRDS(enriched_gos, file="processed_data/Gos_tf_new_no_proms.RDS")
 

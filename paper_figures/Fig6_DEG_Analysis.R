@@ -12,8 +12,10 @@ source("snATACseq/R/functions_nmf.R")
 
 # Volcano Plot
 
-markers_PN <- read.table(file="snATACseq/processed_data/Organoids_PN_markers.csv",
+markers_PN <- read.table(file="snRNAseq/processed_data/Organoids_PN_markers.csv",
              sep=",", header = T)
+
+genes_of_interest <- c("KCNB2", "KCNMA1", "GABRB1", "GRIA4", "LRRTM4", "PCDH9")
 
 markers_PN$p.adjust <- -log10(markers_PN$FDR)
 g1 <- ggplot(markers_PN, aes(x=summary.logFC, y=p.adjust)) + 
@@ -22,13 +24,12 @@ g1 <- ggplot(markers_PN, aes(x=summary.logFC, y=p.adjust)) +
       markers_PN$FDR < 0.05,], col="#990099", alpha=0.5) +
     geom_point(data=markers_PN[markers_PN$summary.logFC < 0 &
         markers_PN$FDR < 0.05,], col="#009900", alpha=0.5) +
-    theme_classic() #+
-    #geom_text_repel(data=markers_PN[markers_PN$summary.logFC > 0.75 &
-    #    markers_PN$FDR < 0.05,], col="#100010", aes(label=Symbol),
-    #    size=2, max.overlaps = 20) +
-    #geom_text_repel(data=markers_PN[markers_PN$summary.logFC < -0.75 &
-    #   markers_PN$FDR < 0.05,], col="#001000", aes(label=Symbol),
-    #   size=2, max.overlaps = 20)
+    theme_classic() +
+    geom_text_repel(data=markers_PN[markers_PN$Symbol %in% genes_of_interest,],
+        col="grey", aes(label=Symbol),
+        size=4, max.overlaps = 20) +
+    geom_point(data=markers_PN[markers_PN$Symbol %in% genes_of_interest,], 
+               col="red", alpha=0.5) 
 
 ggsave(g1, file="paper_figures/Fig6_Volcano_PN.png", width=7,
        height=7)
@@ -55,11 +56,22 @@ g1 <- barplot(go_pn, showCategory=20) + scale_fill_gradientn(limits=c(0, 0.05),
    colours = rev(grDevices::colorRampPalette(colors=blue_colours)(20)))
 ggsave(g1, file="paper_figures/Fig6_Go_PN.svg", width=7, height=7)
 
-g1 <- barplot(go_pn_up, showCategory=20) + scale_fill_gradientn(limits=c(0, 0.05), 
+up_paths <- c("GO:0042391", "GO:0050808", "GO:0007215", "GO:0006836",
+              "GO:001508", "GO:0048167", "GO:0007214", "GO:2001257",
+              "GO:0007611", "GO:0001764", "GO:0036465", "GO:1990138")
+down_paths <- c("GO:0000819", "GO:0006302", "GO:0006260", "GO:0048285",
+                "GO:0061351", "GO:0098727", "GO:0019827", "GO:0050768",
+                "GO:0051961", "GO:0006338", "GO:0007405", "GO:0042063")
+
+go_pn_up1 <- go_pn_up
+go_pn_up1@result <- go_pn_up[up_paths,]
+g1 <- barplot(go_pn_up1, showCategory=20) + scale_fill_gradientn(limits=c(0, 0.05), 
    colours = rev(grDevices::colorRampPalette(colors=blue_colours)(20)))
 ggsave(g1, file="paper_figures/Fig6_Go_PN_up.svg", width=7, height=7)
 
-g1 <- barplot(go_pn_down, showCategory=20) + scale_fill_gradientn(limits=c(0, 0.05), 
+go_pn_down1 <- go_pn_down
+go_pn_down1@result <- go_pn_down[down_paths,]
+g1 <- barplot(go_pn_down1, showCategory=20) + scale_fill_gradientn(limits=c(0, 0.05), 
     colours = rev(grDevices::colorRampPalette(colors=blue_colours)(20)))
 ggsave(g1, file="paper_figures/Fig6_Go_PN_down.svg", width=7, height=7)
 
@@ -70,8 +82,8 @@ all_samples <- c("Luc9228.RDS", "org2290.RDS", "org2432.RDS")
 
 atlas <- readRDS("snRNAseq/processed_data/2020-12-18_RAW_whole-tissue_post-restaged-GABA-clustering.RDS")
 colData(atlas) <- DataFrame(Sample=atlas$batch, 
-                            Barcode=colnames(atlas), predcelltype=atlas$major_clust, 
-                            predarcsin=atlas$arcsin_ages, predstage=atlas$stage_ids)
+        Barcode=colnames(atlas), predcelltype=atlas$major_clust, 
+        predarcsin=atlas$arcsin_ages, predstage=atlas$stage_ids)
 
 tmp <- readRDS("snRNAseq/processed_data/2020-12-18_whole-tissue_post-restaged-GABA-clustering.RDS")
 umap_org <- as.data.frame(reducedDim(tmp, "UMAP"))

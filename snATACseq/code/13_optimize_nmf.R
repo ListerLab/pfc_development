@@ -7,13 +7,14 @@
 ###############################################################################
 options(scipen=999)
 
-library(NMF)
 library(reticulate)
 library(parallel)
 
 np <- import("numpy")
 sp <- import("scipy")
 sklearn <- import("sklearn.decomposition")
+
+source("snATACseq/R/functions_nmf.R")
 
 # 1. read in data
 
@@ -73,7 +74,7 @@ for(i in 1:length(ranks)){
 
 ranks <- seq(40L, 50L, 1L)
 set.seed(10)
-seeds <- sample(1L:10000L, 10)
+seeds <- sample(1L:10000L, 10L)
 
 res <- list()
 

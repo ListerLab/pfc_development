@@ -9,12 +9,20 @@ tf_expr <- lapply(tf_expr, function(x) names(x)[x==0])
 all_gos <- readRDS("snATACseq/processed_data/Gos_tf_all.RDS")
 all_gos <- readRDS("snATACseq/processed_data/Gos_tf_neurotransmitter.RDS")
 all_gos <- readRDS("snATACseq/processed_data/Gos_tf_ion.RDS")
+all_gos <- readRDS("snATACseq/processed_data/Gos_tf_new_proms.RDS")
+all_gos <- readRDS("snATACseq/processed_data/Gos_tf_new_no_proms.RDS")
+all_gos <- readRDS("snATACseq/processed_data/Gos_gpcrs_neuros.RDS")
 all_gos <- all_gos[!lengths(all_gos)==0]
 
 gos <- c(Ensheatment="GO:0007272", `Cell Cycle`="GO:0007049", 
     `Neuron Migration`="GO:0001764", `Synapse Organization`="GO:0050808",
     `Cytoskeletal Organization`="GO:0051493", Learning="GO:0007612",
     `Cell Death`="GO:0008219", `Ion Transport`="GO:0006811")
+
+gos <- c("GO:0006836_no_proms", "GO:0006836")
+
+gos <- c(Ensheatment="GO:0007272", `Neurotransmitter transport`="GO:0006836",
+         `Chemical synapse`="GO:0007268", `Ion Transport`="GO:0006811")
 
 gos <- c(`Regulation of neurotransmitter levels`="GO:0001505",
          `Neurotransmitter secretion`="GO:0007269",
@@ -67,7 +75,7 @@ for(i in 1:length(all_gos)){
 names(enriched) <- names(all_gos)
 enriched <- unlist(enriched, recursive = FALSE)
 
-enriched_transporter <- do.call(rbind, enriched[grepl("GO:0006811", 
+enriched_transporter <- do.call(rbind, enriched[grepl("GO:0006836", 
     names(enriched), fixed=T)])
 enriched_transporter$name <- paste0(enriched_transporter$cell_type,
     "_", enriched_transporter$trend)

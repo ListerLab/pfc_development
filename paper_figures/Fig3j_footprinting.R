@@ -63,6 +63,8 @@ for(i in 1:length(xxx)){
     gene_trends_tmp <- unlist(as(gene_trends_tmp, "GRangesList"))
     mm_interest <- lapply(mm, function(x) x[findOverlaps(x, 
         gene_trends_tmp)@from])
+    mm_interest <- mm_interest[[1]][!duplicated(mm_interest[[1]])]
+    
     #mm_control <- lapply(mm, function(x) x[-findOverlaps(x, 
     #    gene_trends_tmp)@from])
     #set.seed(10)

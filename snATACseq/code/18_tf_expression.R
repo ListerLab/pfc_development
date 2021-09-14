@@ -44,9 +44,7 @@ saveRDS(tf_all, "snATACseq/processed_data/tf_not_rna.RDS")
 input <- list(Astro=c(which(sce$Astro_GFAP_dev_traj=="dev-traj"), 
                       which(sce$Astro_SLC1A2_dev_traj=="dev-traj")), 
               Oligo=c(which(sce$Oligo_dev_traj=="dev-traj"), which(
-                  sce$OPC_MBP_dev_traj=="dev-traj")), 
-              OPC=c(which(sce$OPC_dev_traj=="dev-traj"), 
-                    which(sce$OPC_MBP_dev_traj=="dev-traj")),
+                  sce$OPC_MBP_dev_traj=="dev-traj")),
               Vas=c(which(sce$Vas_CLDN5_dev_traj=="dev-traj"), 
                     which(sce$Vas_PDGFRB_dev_traj=="dev-traj"), 
                     which(sce$Vas_TBX18_dev_traj=="dev-traj")),

@@ -22,10 +22,9 @@ colnames(dat) <- gsub("transmembrane transporter activity", "TTA", colnames(dat)
 colnames(dat) <- gsub("G-protein coupled receptor", "GPCR", colnames(dat))
 colnames(dat) <- gsub("plasma membrane", "PM", colnames(dat))
 
-hc <- hclust(dist(dat[,-1]))
-order_row <- order.optimal(dist(dat[,-1]), hc$merge)
-hc <- hclust(dist(t(dat[order_row$order,-1])))
-order_col <- order.optimal(dist(t(dat[order_row$order,-1])), hc$merge)
+order_row <- c(14, 4, 11, 6, 7, 12, 3, 5, 1, 10, 2, 9, 8, 13)
+hc <- hclust(dist(t(dat[order_row,-1])))
+order_col <- order.optimal(dist(t(dat[order_row,-1])), hc$merge)
 
 
 dat <- melt(dat, id.vars="modules")
@@ -36,7 +35,7 @@ dat[dat[,3]==0,3] <- NA
 dat[dat[,4]==0,4] <- NA
 dat$modules <- sapply(dat$modules, function(x) strsplit(x, "-")[[1]][2])
 
-order_modules <- c(1:14)[order_row$order]
+order_modules <- c(1:14)[order_row]
 dat$modules <- factor(dat$modules, levels=rev(order_modules))
 
 order_go_terms <- names(order_col$order)[order_col$order]

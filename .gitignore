@@ -45,6 +45,7 @@ supp_figures/SuppFig2_AnnotationCluster/**
 supp_figures/cluster_figures/**
 supp_figures/cluster_figures/*.png
 supp_figures/SuppFig6_ensheatment/**
+snATACseq/GEO_upload/**
 # htmls
 *.html
 *.pdf
