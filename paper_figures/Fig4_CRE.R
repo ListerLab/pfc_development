@@ -45,14 +45,14 @@ plot_pie <- function(x){
         coord_polar("y", start=0) +
         scale_fill_manual(values=col_stages_rna) + theme_void() +
         guides(fill=FALSE)
-    ggsave(g1, file=paste0("paper_figures/pie_charts/", x, "_pie_chart_stage.svg"),
+    ggsave(g1, file=paste0("paper_figures/Fig5_pie_charts/", x, "_pie_chart_stage.svg"),
            height=2, width=2)
     g2 <- ggplot(dat_H, aes(x="", y=value, fill=cluster))  + 
         geom_bar(stat="identity", width=1) +
         coord_polar("y", start=0) +
         scale_fill_manual(values=col_types) + theme_void() +
         guides(fill=FALSE)
-    ggsave(g2, file=paste0("paper_figures/pie_charts/", x, "_pie_chart_cluster.svg"),
+    ggsave(g2, file=paste0("paper_figures/Fig5_pie_charts/", x, "_pie_chart_cluster.svg"),
            height=2, width=2)
     
 }
@@ -114,7 +114,7 @@ cluster_col<- c('#155145', '#d3d3d3', '#FE1886', '#BDC90F', '#4903FB', '#26FFA8'
     '#970FCC')
 names(cluster_col) <- levels(plot_list$classes_new)
 
-png("paper_figures/Fig3g_CRE.png",  width=10, height=12, unit="cm",
+png("paper_figures/Fig4_CRE.png",  width=10, height=12, unit="cm",
     res=1200)
 f1 = circlize::colorRamp2(seq(-4, 4, length = 3), c("blue", "#EEEEEE", "red"))
 rowAnnotation(cluster = as.factor(plot_list$classes_new[my_hclust_row]),

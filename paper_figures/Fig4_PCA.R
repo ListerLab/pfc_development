@@ -85,8 +85,8 @@ plot_pca <- function(cell_types, title, fpkm=TRUE){
 
 
 g1 <- plot_pca(c("Astro", "Oligo", "Micro"), "Glia")
-ggsave(g1, file="paper_figures/Fig3f_Glia_PC1.svg", height=3, width=7)
+ggsave(g1, file="paper_figures/Fig4_Glia_PC1.svg", height=3, width=7)
 g2 <- plot_pca(c("L2_3", "L4", "L5_6"), "Principal Neurons")
-ggsave(g2, file="paper_figures/Fig3f_PN_PC1.svg", height=3, width=7)
+ggsave(g2, file="paper_figures/Fig4_PN_PC1.svg", height=3, width=7)
 g3 <- plot_pca(c("CGE_der", "MGE_der"), "Inhibitory Neurons")
-ggsave(g3, file="paper_figures/Fig3f_IN_PC1.svg", height=3, width=7)
+ggsave(g3, file="paper_figures/Fig4_IN_PC1.svg", height=3, width=7)

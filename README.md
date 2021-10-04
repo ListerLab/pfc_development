@@ -1,62 +1,30 @@
-# neuro-dev-atac
+# Human prefrontal cortex development atlas repository
 
+This repository contains the code and supporting information necessary to 
+reproduce the analysis accompanying the manuscript "Human prefrontal cortex 
+development is underpinned by dynamic chromatin and transcriptional 
+changes spanning gestation to adulthood". 
+
+Note that names of modules and clusters in main and supplementary figures 
+of the manuscript have occassionally be changed for readability. A table to 
+convert the orginal names to the names used in the manuscript can be found
+at `\annotation\Renaming_tables.xlsx`.
 
 ## File descriptions and paths
 
-Sample meta-data
-```
-annotation/scATACseq_neuronal_maturation.xlsx
-```
-
-Cell-type Tn5 insertion bed files for each library. One record per insertion event, flanked by 25 base window per side (to facilitate peak calling). Blacklist mapped reads removed. 
-```
-bedfiles/*_blacklistrm_strand.bed
-```
-
-Stage-grouped cell-type Tn5 insertion bed files. One record per insertion event, flanked by 25 base window per side (to facilitate peak calling). 
-```
-bedfiles/stages/
-```
-
-ATAC accessability peaks per cell type
-```{bash}
-ls peaks/*merge.narrowPeak | grep -v RL
-```
-
-```
-peaks/Astro_merge.narrowPeak
-peaks/CGE_der_merge.narrowPeak
-peaks/L2_3_merge.narrowPeak
-peaks/L4_merge.narrowPeak
-peaks/L5_6_merge.narrowPeak
-peaks/MGE_der_merge.narrowPeak
-peaks/Micro_merge.narrowPeak
-peaks/Oligo_merge.narrowPeak
-peaks/OPC_merge.narrowPeak
-peaks/Vas_merge.narrowPeak
-```
-
-List containing ATAC peak Tn5 insertion counts. 
-```
-processed_data/atac_peak_counts.Rds
-```
-
-The top level items in the list are lists for each cell type. Within these cell type lists are the raw peak instertion counts, and then normalised by insertions per million per kilobase.
-
-For example:
-
-To access the raw counts and normalised counts for Astrocyte peaks
-```{r}
-peak_mat_list <- readRDS("processed_data/atac_peak_counts.Rds")
-astro_counts <- peak_mat_list$Astro$peak_counts
-astro_fpkm <- peak_mat_list$Astro$peak_fpkm
-```
+| File Paths | Description |
+| ----------- | ----------- |
+| `\snATACseq`  | Analysis pertaining to snATAC-seq |
+| `\snATACseq\code`  | Code for analysis of snATAC-seq |
+| `\snATACseq\browser`  | Code for interactive browser |
+| `\snATACseq\GEO_upload`  | Code for GEO upload |
+| `\snATACseq\R`  | Code for frequently used helper functions |
+| `\snRNAseq`  | Analysis pertaining to snRNA-seq |
+| `\snRNAseq\code`  | Code for analysis of snRNA-seq |
+| `\paper_figures`  | Code for main figures in manuscript |
+| `\supp_figures`  | Code for supplementary figures in manuscript |
+| `\supp_tables`  | Supplementary tables in manuscript |
+| `\annotation`  | Contains meta data and supporting information |
 
 
-### ATAC peaks
-
-Per cell type, filtered ATAC peaks
-```
-processed_data/cell_type_atac_peaks_filtered_gr.Rds
-```
 

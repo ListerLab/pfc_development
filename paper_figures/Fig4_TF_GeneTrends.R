@@ -99,6 +99,6 @@ g1 <- ggplot(tmp_sub,
     ylab("Gene Trend") 
 
 
-ggsave(g1, file="paper_figures/Fig3j_TF_GeneTrends.svg", height=4.5, 
+ggsave(g1, file="paper_figures/Fig4_TF_GeneTrends.svg", height=4.5, 
        width=6)
 

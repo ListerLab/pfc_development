@@ -31,4 +31,4 @@ g1 <- ggplot(dat2, aes(y=Tissue, x=variable, fill=value)) +
          grDevices::colorRampPalette(colors=blue_colours)(20)) +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
           axis.title = element_blank()) 
-ggsave(g1, file="paper_figures/Fig4e_ChromHMM.svg", width=3.5, height=4)
+ggsave(g1, file="paper_figures/Fig4e=_ChromHMM.svg", width=3.5, height=4)

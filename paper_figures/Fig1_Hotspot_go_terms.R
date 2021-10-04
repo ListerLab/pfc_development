@@ -56,4 +56,4 @@ gg_final <- ggplot(dat, aes(y=modules, x=`GO terms`,
           axis.text.x = element_text(size=7)) 
 
   
-ggsave(gg_final, file="paper_figures/Fig1g_Hotspot_go_terms.svg", height=3.5, width=11)
+ggsave(gg_final, file="paper_figures/Fig1_Hotspot_go_terms.svg", height=3.5, width=11)

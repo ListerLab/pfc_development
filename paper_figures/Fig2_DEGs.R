@@ -29,4 +29,4 @@ gg1 <- ggplot(dat, aes(x=Trajectory,
     guides(fill=FALSE) +
     geom_text(aes(label=`Number of differentially expressed genes`), 
               position=position_dodge(width=0.9), vjust=-0.25) + guides(fill=FALSE)
-ggsave(gg1, file="paper_figures/Fig2b_DEG.svg", height=5, width=6)
+ggsave(gg1, file="paper_figures/Fig2_DEG.svg", height=5, width=6)

@@ -105,5 +105,5 @@ g1 <- ggplot(enriched_transporter, aes(x=feature_short, y=name, fill=padjust)) +
           panel.background=element_rect(fill="white", colour="white"),
           axis.title=element_blank()) 
 
-ggsave(g1, file="paper_figures/Fig3k_TF_ion_transporter.svg", 
+ggsave(g1, file="paper_figures/Fig4_TF_ion_transporter.svg", 
        height=6, width=10)
