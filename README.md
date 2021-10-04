@@ -1,9 +1,8 @@
-# Human prefrontal cortex development atlas repository
+# Human prefrontal cortex development map repository
 
 This repository contains the code and supporting information necessary to 
-reproduce the analysis accompanying the manuscript "Human prefrontal cortex 
-development is underpinned by dynamic chromatin and transcriptional 
-changes spanning gestation to adulthood". 
+reproduce the analysis accompanying the manuscript "Cellular dynamics of the 
+developing human brain from gestation to adulthood". 
 
 Note that names of modules and clusters in main and supplementary figures 
 of the manuscript have occassionally be changed for readability. A table to 
