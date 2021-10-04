@@ -33,4 +33,4 @@ g1 <- ggplot(tf, aes(x=feature_short, y=cell_type, fill=padjust)) + geom_tile() 
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
           axis.title = element_blank()) 
 
-ggsave(g1, file="paper_figures/Fig5b_TF_diseases.svg", height=5, width=7)
+ggsave(g1, file="paper_figures/Fig5_TF_diseases.svg", height=5, width=7)

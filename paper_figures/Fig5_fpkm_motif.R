@@ -66,7 +66,8 @@ fpkm_stage_plot <- function(id, motif_interest, path, col) {
     mm_df <- data.frame(chr=seqnames(unique(mm)), start=start(unique(mm)),
         end=end(unique(mm)), CRE=unique(mm)$CRE, cell_type=strsplit(names(mm)[1],
         ".", fixed=T)[[1]][1])
-    write.table(mm_df, file=paste0(id, "_", "regions_motifs", motif_interest, ".txt"), 
+    write.table(mm_df, file=paste0(id, "_", "regions_motifs", 
+        motif_interest, ".txt"), 
         quote=FALSE, sep="\t")
 
     collect_fpkm <- collect_fpkm_fun(mm)
@@ -96,37 +97,29 @@ fpkm_stage_plot <- function(id, motif_interest, path, col) {
             geom_line(data = collect_fpkm_mean, alpha = 1, size = 3) +
             theme_classic() 
 
-        ggsave(g1, file=paste0(path, "/", id, "_", motif_interest, ".pdf")
+        ggsave(g1, file=paste0(path, "/Fig5_", id, "_", motif_interest, ".pdf")
     
 }
 
-fpkm_stage_plot("PV_6_Schizophrenia", "ASCL1_370", "final_enrichment_disease",
-    col="#b44622")
 fpkm_stage_plot("Oligo_4_Autism Spectrum Disorders", "SOX13_406",
-    "final_enrichment_disease", col='#255f85')
+    "paper_figures/", col='#255f85')
 fpkm_stage_plot("L4_RORB_6_Bipolar Disorder", "FOS..JUND_434",
- "final_enrichment_disease", col='#a86a72')
+ "paper_figures/", col='#a86a72')
 
 opts <- list()
 opts[["species"]] <- 9606
 hs_motifs <- TFBSTools::getMatrixSet(JASPAR2018, opts)
 
-svg("figures/final_enrichment_disease/ASCL1.svg", height=2, width=4)
-ind <- grep("ASCL1", sapply(hs_motifs, function(x) x@name))
+svg("paper_figures/Fig5_SOX13.svg", height=2, width=4)
+ind <- grep("SOX13$", sapply(hs_motifs, function(x) x@name))
 seqLogo(apply(hs_motifs[[ind]]@profileMatrix, 
     2, function(x) x/sum(x)), ic.scale=FALSE, xaxis=FALSE, yaxis=FALSE)
 dev.off()
 
-svg("figures/final_enrichment_disease/SOX13.svg", height=2, width=4)
-ind <- grep("SOX13$", sapply(hs_motifs, function(x) x@name))
-seqLogo(apply(hs_motifs[[ind]]@profileMatrix, 
-              2, function(x) x/sum(x)), ic.scale=FALSE, xaxis=FALSE, yaxis=FALSE)
-dev.off()
-
-svg("figures/final_enrichment_disease/FOS..JUND.svg", height=2, width=4)
+svg("paper+figures/Fig5_FOS..JUND.svg", height=2, width=4)
 ind <- grep("FOS..JUND$", sapply(hs_motifs, function(x) x@name))
 seqLogo(apply(hs_motifs[[ind]]@profileMatrix, 
-              2, function(x) x/sum(x)), ic.scale=FALSE, xaxis=FALSE, yaxis=FALSE)
+    2, function(x) x/sum(x)), ic.scale=FALSE, xaxis=FALSE, yaxis=FALSE)
 dev.off()
 
 
