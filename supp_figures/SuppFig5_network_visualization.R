@@ -53,7 +53,7 @@ for(i in 1:length(cell_types)){
         geom_node_text(aes(label = name, filter=degree(g_a)>10), 
                        size = 5, repel = TRUE) +
         theme_graph() 
-    ggsave(g1, file=paste0("supp_figures/SuppFig_Network_", cell_types[i],
+    ggsave(g1, file=paste0("supp_figures/SuppFig5_Network_", cell_types[i],
                            "_Adolescence_Net.svg"), height=7, width=7)
     df_a <- data.frame(betweeness=betweenness(g_a), hub=hub_score(g_a)$vector)
     df_a$gene <- rownames(df_a)
@@ -62,7 +62,7 @@ for(i in 1:length(cell_types)){
         theme_minimal() +
     geom_text_repel(data=df_a[df_a$betweeness>200&df_a$hub>0.5,], 
                     aes(label=gene)) 
-    ggsave(a_gg, file=paste0("supp_figures/SuppFig_Network_",
+    ggsave(a_gg, file=paste0("supp_figures/SuppFig5_Network_",
         cell_types[i], "_Adolescence.svg"),
        height=7, width=7)
 }

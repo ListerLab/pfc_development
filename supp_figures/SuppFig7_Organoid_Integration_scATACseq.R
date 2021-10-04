@@ -46,12 +46,12 @@ g1 <- ggplot(commap_ref[sample(1:nrow(commap_ref),), ], aes(x=UMAP1, y=UMAP2)) +
     geom_density_2d(data=commap_query, color="#ff7b00", size=0.5, bins=15,
                     adjust=1/2)
 
-ggsave(g1, file="supp_figures/SuppFig_organoid_integration_density_lines_all.png",
+ggsave(g1, file="supp_figures/SuppFig7_organoid_integration_density_lines_all.png",
        width=7, height=7)
 
 g1 <- ggplot(commap_ref[sample(1:nrow(commap_ref),), ], aes(x=UMAP1, y=UMAP2)) + 
     geom_point(col="black", size=1.5) +
     geom_point(col="white", size=0.8) + theme_classic()
 
-ggsave(g1, file="supp_figures/SuppFig_organoid_integration_outline_all.png",
+ggsave(g1, file="supp_figures/SuppFig7_organoid_integration_outline_all.png",
        width=7, height=7)

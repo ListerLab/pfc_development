@@ -33,6 +33,6 @@ colnames(dat) <- c("No CREs", "Freq")
 dat$`No CREs` <- as.numeric(dat$`No CREs`)
 gg <- ggplot(dat, aes(x=`No CREs`, y=Freq)) + geom_col() + theme_classic()
 
-ggsave(gg, file="supp_figures/SuppFig_Hist_CRE.svg",
+ggsave(gg, file="supp_figures/SuppFig5_Hist_CRE.svg",
        height=7, width=7)
 
