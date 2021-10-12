@@ -2,8 +2,8 @@ library(SingleCellExperiment)
 library(zellkonverter)
 library(reticulate)
 
-dat <- readRDS("processed_data/UMAP_GeneScore_rm.rds")
-anndata <- import("anndata")
+dat <- readRDS("snATACseq/processed_data/UMAP_GeneScore_rm.rds")
+heanndata <- import("anndata")
 
 col_data <- DataFrame(barcode=rownames(dat$coldata),
     sample=dat$coldata$Sample, stage=dat$coldata$Stage,

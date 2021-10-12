@@ -184,9 +184,6 @@ genes <- promoters(txdb, filter=list(gene_id=rownames(genes_per_groups)),
    upstream=250000, downstream=250000, columns="GENEID")
 strand(genes) <- "*"
 
-genes <- promoters(txdb,
-                   upstream=250000, downstream=250000, columns="GENEID")
-
 ind <- split(1:length(genes), as.character(genes@elementMetadata$GENEID))
 genes <- mclapply(ind, function(x) genes[x], mc.cores=5)
 

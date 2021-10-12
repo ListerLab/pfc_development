@@ -22,17 +22,17 @@ sce <- list()
 for(i in all_samples){
     
     sce[[i]] <- readRDS(paste0(path1, i))
-    sce <- logNormCounts(sce)
+    sce[[i]] <- logNormCounts(sce[[i]])
 
     
-    ind_PN <- sce$predcelltype %in% c("L2/3_CUX2", "L4_RORB",
+    ind_PN <- sce[[i]]$predcelltype %in% c("L2/3_CUX2", "L4_RORB",
         "L5/6_THEMIS_TLE4", "PN_dev")
     ind_n_fetal <- sce$predstage != "Fetal"
 
-    PN_cat <- rep(NA, ncol(sce))
+    PN_cat <- rep(NA, ncol(sce[[i]]))
     PN_cat[ind_PN & ind_n_fetal] <- "mature"
     PN_cat[ind_PN & !ind_n_fetal] <- "immature"
-    markers <- findMarkers(sce, groups=PN_cat, row.data=rowData(sce))
+    markers <- findMarkers(sce[[i]], groups=PN_cat, row.data=rowData(sce[[i]]))
     all_markers_PN[[i]] <- markers$mature
     
 }
