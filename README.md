@@ -20,6 +20,7 @@ at `\annotation\Renaming_tables.xlsx`.
 | `\snATACseq\R`  | Code for frequently used helper functions |
 | `\snRNAseq`  | Analysis pertaining to snRNA-seq |
 | `\snRNAseq\code`  | Code for analysis of snRNA-seq |
+| `\snRNAseq\notebooks`  | Jupyter notebooks used for analysis of snRNA-seq |
 | `\paper_figures`  | Code for main figures in manuscript |
 | `\supp_figures`  | Code for supplementary figures in manuscript |
 | `\supp_tables`  | Supplementary tables in manuscript |
