@@ -76,7 +76,7 @@ g1 <- ggplot(tmp, aes(y=motif_cluster, x=cell_type, fill=p.summary)) +
     theme(axis.text.y=element_text(size=5), 
           panel.background=element_rect(fill="white", colour="white")) +
     xlab("Gene Trend")
-ggsave(g1, file="supp_figures/SuppFig5_enrichment_gene_trends.svg", height=6, width=4)
+ggsave(g1, file="supp_figures/SuppFig4_enrichment_gene_trends.svg", height=6, width=4)
 
 g1 <- all_tfs %>% filter(padjust<0.05) %>%
     ggplot(aes(y=feature_short, x=cell_type, fill=padjust)) + 
@@ -86,7 +86,7 @@ g1 <- all_tfs %>% filter(padjust<0.05) %>%
           panel.background=element_rect(fill="white", colour="white")) +
     ylab("Motif") +
     xlab("Gene Trend")
-ggsave(g1, file="supp_figures/SuppFig5_enrichment_gene_trends_full.svg", height=12, width=4)
+ggsave(g1, file="supp_figures/SuppFig4_enrichment_gene_trends_full.svg", height=12, width=4)
 
 subset_motifs <- tmp %>% group_by(motif_cluster, cell_type) %>% 
     group_by(motif_cluster) %>%
@@ -120,5 +120,5 @@ g1 <- all_tfs[all_tfs$feature_short %in% subset_motifs,] %>%
           panel.background=element_rect(fill="white", colour="white")) +
     ylab("Motif") +
     xlab("Gene Trend")
-ggsave(g1, file="supp_figures/SuppFig5_enrichment_gene_trends_subset_full.svg", height=12, width=4)
+ggsave(g1, file="supp_figures/SuppFig4_enrichment_gene_trends_subset_full.svg", height=12, width=4)
 

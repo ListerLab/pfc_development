@@ -77,7 +77,7 @@ ggsave(g1, file="paper_figures/Fig6_Go_PN_down.svg", width=7, height=7)
 
 # UMAP plots
 
-path1 <- "path_to_umaps"
+path1 <- "snRNAseq/processed_data/orgpred/"
 all_samples <- c("Luc9228.RDS", "org2290.RDS", "org2432.RDS")
 
 atlas <- readRDS("snRNAseq/processed_data/2020-12-18_RAW_whole-tissue_post-restaged-GABA-clustering.RDS")

@@ -16,6 +16,6 @@ dat <- dat %>% filter(!is.na(Layer))
 
 g1 <- ggplot(dat, aes(x=Layer, y=HTR2A)) + geom_boxplot() + 
     geom_point() + theme_classic() 
-ggsave(g1, file=paste0("supp_figures/SuppFig4_HTR2A_spatial.svg"),
+ggsave(g1, file=paste0("supp_figures/SuppFig5_HTR2A_spatial.svg"),
        height=4, width=7)
 

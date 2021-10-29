@@ -69,7 +69,7 @@ g1 <- ggplot(df[order(df$DoubletScores, decreasing=FALSE),], aes(x=UMAP1, y=UMAP
     geom_point(aes(col=DoubletScores), size=0.285, alpha=0.5) +
     theme_classic() + scale_color_viridis_c() 
 
-ggsave(g1, file="supp_figures/SuppFig5_DoubletScore.png", height=7, width=7)
+ggsave(g1, file="supp_figures/SuppFig4_DoubletScore.png", height=7, width=7)
 
 ## Figure filtered UMAP plot Supp 2
 
@@ -125,7 +125,7 @@ g1 <- ggplot(df, aes(x=UMAP1, y=UMAP2)) +
     theme_classic() + scale_colour_manual(values=p36) +
     guides(color="none")
 
-ggsave(g1, file="supp_figures/SuppFig5_Clusters.png", height=7, width=7)
+ggsave(g1, file="supp_figures/SuppFig4_Clusters.png", height=7, width=7)
 
 ### UMAP plot samples
 
@@ -139,7 +139,7 @@ g1 <- ggplot(df, aes(x=UMAP1, y=UMAP2)) +
     guides(color= guide_legend(override.aes = list(size = 3, alpha=1)))
 
 
-ggsave(g1, file="supp_figures/SuppFig5_Samples.png", height=7, width=7)
+ggsave(g1, file="supp_figures/SuppFig4_Samples.png", height=7, width=7)
 
 ### Barplot samples
 
@@ -159,7 +159,7 @@ g1 <- ggplot(num_cell_sample, aes(x=sample, y=num_cells.Freq, fill=sample)) +
     guides(fill=FALSE) + ylab("Number of Cells") + 
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-ggsave(g1, file="supp_figures/SuppFig5_CellNum_Sample.svg", 
+ggsave(g1, file="supp_figures/SuppFig4_CellNum_Sample.svg", 
        height=5.51, width=5.13, units="cm")
 
 ### Barplot stages
@@ -177,7 +177,7 @@ g1 <- ggplot(num_cell_stage, aes(x=stage, y=num_cells.Freq, fill=stage)) +
     guides(fill=FALSE) + ylab("Number of Cells") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-ggsave(g1, file="supp_figures/SuppFig5_CellNum_Stage.svg", 
+ggsave(g1, file="supp_figures/SuppFig4_CellNum_Stage.svg", 
        height=5.51, width=5.13, units="cm")
 
 ### Composition detailed
@@ -198,7 +198,7 @@ g1 <- ggplot(data = df1, mapping = aes(y = Sample, fill = Anno)) +
     geom_bar(position = "fill", colour="black") + scale_fill_manual(values = col) + 
     scale_y_discrete(limits = rev(levels(df1$Sample))) + theme_classic()
 
-ggsave(g1, file="supp_figures/SuppFig5_CompSamples.svg", height=8, width=6)
+ggsave(g1, file="supp_figures/SuppFig4_CompSamples.svg", height=8, width=6)
 
 ### Annotation of Clusters
 
@@ -241,7 +241,7 @@ g1 <- ggplot(dat, aes(y=tissue, x=variable, fill=value)) +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
           axis.title = element_blank()) + facet_grid(cols=vars(cell_type))
 
-ggsave(g1, file="supp_figures/SuppFig5_ChromHMM_peaks_celltypes.svg", height=4, width=10)
+ggsave(g1, file="supp_figures/SuppFig4_ChromHMM_peaks_celltypes.svg", height=4, width=10)
 
 ### Annotation genome
 
@@ -380,7 +380,7 @@ g1 <- ggplot(dat, aes(x=Correlation, fill=Group)) + geom_density(alpha=0.4) +
     annotate("text", label = paste0("threshold=", round(thresh,2)), 
     x = thresh+0.30, y = 4)
 
-ggsave(g1, file="supp_figures/SuppFig5_CorrelationTresh.svg", height=4, width=6)
+ggsave(g1, file="supp_figures/SuppFig4_CorrelationTresh.svg", height=4, width=6)
 
 
 ##Number
@@ -423,7 +423,7 @@ g1 <- ggplot(dat, aes(y=Tissue, x=variable, fill=value)) +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
           axis.title = element_blank()) 
 
-ggsave(g1, file="supp_figures/SuppFig5_ChromHMM_CRE.svg", height=4, width=3.5)
+ggsave(g1, file="supp_figures/SuppFig4_ChromHMM_CRE.svg", height=4, width=3.5)
 
 
 ## TF for diseases

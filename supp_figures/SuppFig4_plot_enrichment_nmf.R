@@ -43,7 +43,7 @@ g1 <- ggplot(all_tfs, aes(y=feature_short, x=cell_type, fill=padjust)) +
     theme(axis.text.y=element_text(size=5), 
           panel.background=element_rect(fill="white", colour="white")) +
     xlab("Module") 
-ggsave(g1, file="supp_figures/SuppFig5_enrichment_nmf_distinct.svg", height=6, width=4)
+ggsave(g1, file="supp_figures/SuppFig4_enrichment_nmf_distinct.svg", height=6, width=4)
 
 all_tfs <- read.table("processed_data/TF_nmf_max_mod.tsv", sep="\t",
     stringsAsFactors = FALSE)
@@ -112,4 +112,4 @@ g1 <- ggplot(tmp, aes(y=motif_cluster, x=cell_type, fill=p.summary)) +
     theme(axis.text.y=element_text(size=5), 
           panel.background=element_rect(fill="white", colour="white")) +
     xlab("Module") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-ggsave(g1, file="supp_figures/SuppFig5_enrichment_nmf_all.svg", height=12, width=8)
+ggsave(g1, file="supp_figures/SuppFig4_enrichment_nmf_all.svg", height=12, width=8)

@@ -23,4 +23,4 @@ dat3 <- data.frame(id=names(all_peaks), width=width(all_peaks),
 
 g1 <- ggplot(dat3, aes(x=width)) + geom_density(fill="black") + 
     theme_classic() + ggtitle("All peaks") + scale_x_log10()
-ggsave(g1, file="paper_figures/Fig4d_PeakLength.svg", width=3.5, height=2)
+ggsave(g1, file="supp_figures/Fig4_PeakLength.svg", width=3.5, height=2)
