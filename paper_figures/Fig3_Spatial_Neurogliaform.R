@@ -44,9 +44,9 @@ g2c <- ggplot(tmp, aes(x=NDNF, y=CCK)) + theme_classic() +
     stat_binhex(bins=40) +
     scale_fill_gradientn(colours =
      grDevices::colorRampPalette(colors=blue_colours)(20)[-c(1:3)])
-ggsave(g2a, file="supp_figures/SuppFig4_NOS1_NDNF.svg", height=8, width=7)
-ggsave(g2b, file="supp_figures/SuppFig4_NOS1_CCK.svg", height=8, width=7)
-ggsave(g2c, file="supp_figures/SuppFig4_NDNF_CCK.svg", height=8, width=7)
+ggsave(g2a, file="paper_figures/Fig3_NOS1_NDNF.svg", height=8, width=7)
+ggsave(g2b, file="paper_figures/Fig3_NOS1_CCK.svg", height=8, width=7)
+ggsave(g2c, file="paper_figures/Fig3_NDNF_CCK.svg", height=8, width=7)
 
 tmp$layer <- factor(tmp$layer, levels=paste0("L", 1:6))
 res <- rbind(table(tmp$layer[tmp$NOS1==0 & tmp$NDNF==0 & !tmp$CCK==0]), 
@@ -65,7 +65,7 @@ res1 <- reshape2::melt(res1)
 colnames(res1) <- c("Cell type", "Layer", "Stat")
 g1 <- ggplot(res1, aes(y=`Cell type`, x=Layer, fill=Stat)) + geom_tile() + 
     theme_classic() +  scale_fill_gradientn(colours = terrain.colors(10)[-10])
-ggsave(g1, file="supp_figures/SuppFig4_Location_Neurogliaform.svg", 
+ggsave(g1, file="paper_figures/Fig3_Location_Neurogliaform.svg", 
        width=7, height=7)
     
 chisq.test(res[1:2,])
