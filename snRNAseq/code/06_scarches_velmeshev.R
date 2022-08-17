@@ -37,7 +37,7 @@ refmake = refmake[subset(rowData(oldref)$index,
 #2:  make query
 ribogeneset = read.csv('annotation/ribo_geneset.txt', header = FALSE)$V1 
 
-query = readRDS('datasets/kriegstein_dataset.RDS') 
+query = readRDS('snRNAseq/processed_data/transfer_learning/datasets/velmeshev_dataset.RDS') 
 # this dataset can be downloaded from https://www.science.org/doi/abs/10.1126/science.aav8130
 
 
@@ -96,7 +96,12 @@ qlatent = as.matrix(qlatent)
 rownames(qlatent) = colnames(smolquery)
 
 
-#5: umap transform
+#5 save latent representations for further analyses
+
+saveRDS(latent, 'snRNAseq/processed_data/transfer_learning/outs/velmeshev_latent.RDS')
+saveRDS(qlatent, 'snRNAseq/processed_data/transfer_learning/outs/velmeshev_qlatent.RDS')
+
+#6: umap transform
 
 reference = readRDS('snRNAseq/processed_data/2020-12-18_whole-tissue_post-restaged-GABA-clustering.RDS') 
 initembedding = reducedDim(reference, "UMAP")
@@ -118,7 +123,7 @@ qumap$cluster = knn(train = refmap[,1:2], test = qumap[,1:2],
 qumap$age = query$arcsin_ages
 qumap$diff = abs(qumap$pred - qumap$age)
 
-#add samples - different for kriegstein
+#add samples - different for Velmeshev
 qumap$sample = query$sample
 qumap$sample = fct_reorder(qumap$sample, qumap$age)
 qumap = subset(qumap, !(sample %in% c('5893_PFC', '5538_PFC_Nova', 
@@ -133,5 +138,5 @@ qumap$result = out$result
 qumap$truecluster = smolquery$cluster
 
 
-saveRDS(qumap, file="snRNAseq/processed_data/scArches_umap_kriegstein.RDS")
+saveRDS(qumap, file="snRNAseq/processed_data/velmeshev_umap.RDS")
 

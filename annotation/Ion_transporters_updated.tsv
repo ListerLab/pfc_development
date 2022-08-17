@@ -1,0 +1,373 @@
+Gene symbol	ORF	Family ID	Family TC	Family Name	Transporter Type	Substrate	Note	TC	Ion	Channel Type	DEG
+RHCE	NP_065231	Amt	1.A.11	The Ammonia Transporter Channel (Amt) Family	Ion Channels	CO2 (RhCG homolog)?	#	2.A.49.4.3	NH3	NA	TRUE
+RHAG	NP_000315	Amt	1.A.11	The Ammonia Transporter Channel (Amt) Family	Ion Channels	CO2 (Rhesus glycoprotein homolog)?	NA	2.A.49.4.3	NH3	NA	FALSE
+RHCG	NP_057405	Amt	1.A.11	The Ammonia Transporter Channel (Amt) Family	Ion Channels	CO2 (Rhesus glycoprotein RhCG homolog)?	NA	2.A.49.4.1	NH3	NA	TRUE
+RHBG	NP_065140	Amt	1.A.11	The Ammonia Transporter Channel (Amt) Family	Ion Channels	CO2 (Rhesus type B glycoprotein homolog)?	NA	2.A.49.4.2	NH3	NA	FALSE
+RHD	NP_057208	Amt	1.A.11	The Ammonia Transporter Channel (Amt) Family	Ion Channels	CO2? (Rh blood group D antigen)	#	2.A.49.4.3	NH3	NA	TRUE
+TTYH1	NP_065710	Tweety	1.A.48	The Anion Channel Tweety (Tweety) Family	Ion Channels	Tweety anion channel	#	NA	Cl	Gradient	TRUE
+TTYH2	NP_443101	Tweety	1.A.48	The Anion Channel Tweety (Tweety) Family	Ion Channels	Tweety anion channel	#	NA	Cl	Gradient	TRUE
+TTYH3	NP_079526	Tweety	1.A.48	The Anion Channel Tweety (Tweety) Family	Ion Channels	Tweety anion channel	NA	NA	Cl	Gradient	TRUE
+BEST1	NP_004174	Bestrophin	1.A.46	The Anion Channel-forming Bestrophin (Bestrophin) Family	Ion Channels	Bestrophin-1 anion channel	NA	1.A.46.1.1	Cl	Gradient	TRUE
+BEST2	NP_060152	Bestrophin	1.A.46	The Anion Channel-forming Bestrophin (Bestrophin) Family	Ion Channels	Bestrophin-2 anion channel	NA	1.A.46.1.2	Cl	Gradient	FALSE
+BEST3	NP_116124	Bestrophin	1.A.46	The Anion Channel-forming Bestrophin (Bestrophin) Family	Ion Channels	Bestrophin-3 anion channel	#	NA	Cl	Gradient	FALSE
+BEST4	NP_695006	Bestrophin	1.A.46	The Anion Channel-forming Bestrophin (Bestrophin) Family	Ion Channels	Bestrophin-4 anion channel	NA	NA	Cl	Gradient	TRUE
+ANXA1	NP_000691	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A1	NA	NA	Ca	NA	TRUE
+ANXA10	NP_009124	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A10	NA	NA	Ca	NA	FALSE
+ANXA11	NP_001148	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A11	#	NA	Ca	NA	TRUE
+ANXA13	NP_004297	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A13	#	NA	Ca	NA	FALSE
+ANXA2	NP_004030	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A2	#	NA	Ca	NA	TRUE
+ANXA3	NP_005130	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A3	NA	NA	Ca	NA	TRUE
+ANXA4	NP_001144	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A4	NA	NA	Ca	NA	TRUE
+ANXA5	NP_001145	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A5	NA	NA	Ca	NA	TRUE
+ANXA6	NP_001146	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A6	#	1.A.31.1.2	Ca	NA	TRUE
+ANXA7	NP_001147	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A7	#	NA	Ca	NA	TRUE
+ANXA8	NP_001035173	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A8	#	NA	Ca	NA	FALSE
+ANXA8L1	NP_001092315	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A8	#	NA	Ca	NA	FALSE
+ANXA9	NP_003559	Annexin	1.A.31	The Annexin (Annexin) Family	Ion Channels	Annexin A9	NA	NA	Ca	NA	FALSE
+P2RX1	NP_002549	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X1)	NA	1.A.7.1.1	Ca Na K	Gradient	FALSE
+P2RX2	NP_733782	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X2)	#	1.A.7.1.2	Ca Na K	Gradient	TRUE
+P2RX3	NP_002550	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X3)	NA	NA	Ca Na K	Gradient	FALSE
+P2RX4	NP_002551	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X4)	#	NA	Ca Na K	Gradient	TRUE
+P2RX5	NP_002552	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X5)	#	NA	Ca Na K	Gradient	FALSE
+P2RX6	NP_005437	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X6)	NA	NA	Ca Na K	Gradient	TRUE
+P2RX7	NP_002553	ACC	1.A.7	The ATP-gated Cation Channel (ACC) Family	Ion Channels	ATP-gated cation channel (P2X7)	#	1.A.7.1.3	Ca Na K	Gradient	TRUE
+BAK1	NP_001179	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	NA	NA	Ca	NA	TRUE
+BAX	NP_004315	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	#	NA	Ca	NA	TRUE
+BCL2	NP_000624	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	#	NA	Ca	NA	TRUE
+BCL2A1	NP_004040	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	NA	NA	Ca	NA	FALSE
+BCL2L1	NP_612815	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	#	1.A.21.1.1	Ca	NA	TRUE
+BCL2L2	NP_004041	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	NA	NA	Ca	NA	FALSE
+BOK	NP_115904	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	NA	NA	Ca	NA	TRUE
+MCL1	NP_068779	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2 homolog	#	NA	Ca	NA	TRUE
+BCL2L14	NP_110393	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2-like protein 14	#	NA	Ca	NA	TRUE
+ST20	NP_001094350	Bcl-2	1.A.21	The Bcl-2 (Bcl-2) Family	Ion Channels	Bcl-2-related protein A1	#	NA	Ca	NA	FALSE
+BNIP3L	NP_004322	BNip3	1.A.20	The BCL2/Adenovirus E1B-interacting Protein 3 (BNip3) Family	Ion Channels	adenovirus E1B 19 kDa protein-interacting protein 3 (NIP3L)	NA	NA	Ca	NA	TRUE
+BNIP3	NP_004043	BNip3	1.A.20	The BCL2/Adenovirus E1B-interacting Protein 3 (BNip3) Family	Ion Channels	BNip3 channel	NA	NA	Ca	NA	FALSE
+ORAI1	NP_116179	CRAC-C	1.A.52	The Ca2+ Release-activated Ca2+ (CRAC) Channel (CRAC-C) Family	Ion Channels	calcium release-activated calcium ion channel (Orai-1)	NA	NA	Ca	NA	TRUE
+ORAI2	NP_116220	CRAC-C	1.A.52	The Ca2+ Release-activated Ca2+ (CRAC) Channel (CRAC-C) Family	Ion Channels	calcium release-activated calcium ion channel (Orai-2)	NA	NA	Ca	NA	TRUE
+ORAI3	NP_689501	CRAC-C	1.A.52	The Ca2+ Release-activated Ca2+ (CRAC) Channel (CRAC-C) Family	Ion Channels	calcium release-activated calcium ion channel (Orai-3)	NA	NA	Ca	NA	TRUE
+STIM1	NP_003147	CRAC-C	1.A.52	The Ca2+ Release-activated Ca2+ (CRAC) Channel (CRAC-C) Family	Ion Channels	stromal interaction molecule 1 (STIM1)	NA	NA	Ca	NA	TRUE
+MS4A1	NP_690605	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	1.A.37.1.1	Ca	NA	FALSE
+MS4A10	NP_996776	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	FALSE
+MS4A12	NP_060186	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	FALSE
+MS4A13	NP_001012417	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	TRUE
+MS4A14	NP_115986	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	FALSE
+MS4A15	NP_689930	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	TRUE
+MS4A2	NP_000130	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	FALSE
+MS4A3	NP_006129	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	FALSE
+MS4A4A	NP_076926	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	FALSE
+MS4A5	NP_076434	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	FALSE
+MS4A6A	NP_690590	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	FALSE
+MS4A6E	NP_640342	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	TRUE
+MS4A7	NP_996822	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	#	NA	Ca	NA	FALSE
+MS4A8	NP_113645	CD20	1.A.37	The CD20 Ca2+ Channel (CD20) Family	Ion Channels	CD20 calcium channel	NA	NA	Ca	NA	TRUE
+SLC31A1	NP_001850	Ctr	1.A.56	The Copper Transporter (Ctr) Family	Ion Channels	high-affinity copper uptake	NA	1.A.56.1.2	Cu	NA	TRUE
+SLC31A2	NP_001851	Ctr	1.A.56	The Copper Transporter (Ctr) Family	Ion Channels	low-affinity copper uptake	NA	1.A.56.1.9	Cu	NA	TRUE
+MRS2	NP_065713	MIT	1.A.35	The CorA Metal Ion Transporter (MIT) Family	Ion Channels	mitochondrial inner membrane magnesium ion channel protein (MRS2)	NA	1.A.35.5.X	Cu	NA	FALSE
+CLCA1	NP_001276	E-ClC	1.A.13	The Epithelial Chloride Channel (E-ClC) Family	Ion Channels	calcium-activated chloride ion channel	NA	NA	Cl	NA	FALSE
+CLCA2	NP_006527	E-ClC	1.A.13	The Epithelial Chloride Channel (E-ClC) Family	Ion Channels	calcium-activated chloride ion channel	NA	NA	Cl	NA	FALSE
+CLCA4	NP_036260	E-ClC	1.A.13	The Epithelial Chloride Channel (E-ClC) Family	Ion Channels	calcium-activated chloride ion channel	NA	1.A.13.1.1	Cl	NA	TRUE
+SCNN1B	NP_000327	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensistive sodium ion channel	NA	1.A.6.1.1	Na	NA	FALSE
+SCNN1G	NP_001030	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensistive sodium ion channel	NA	1.A.6.1.1	Na	NA	TRUE
+ASIC1	NP_001086	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel	#	1.A.6.1.2	Na	NA	TRUE
+ASIC3	NP_004760	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel	#	1.A.6.1.2	Na	NA	TRUE
+SCNN1A	NP_001029	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel	NA	1.A.6.1.1	Na	NA	FALSE
+ASIC2	NP_001085	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel 1	#	1.A.6.1.2	Na	NA	TRUE
+ASIC4	NP_061144	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel 4	#	NA	Na	NA	TRUE
+ASIC5	NP_059115	ENaC	1.A.6	The Epithelial Na+ Channel (ENaC) Family	Ion Channels	amiloride-sensitive sodium ion channel 5	NA	NA	Na	NA	FALSE
+GJA1	NP_000156	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein alpha1 Connexin 43	NA	1.A.24.1.1	NA	NA	TRUE
+GJA9	NP_110399	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein alpha10 Connexin 59	NA	NA	NA	NA	FALSE
+GJA3	NP_068773	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein alpha3 Connexin 46	NA	NA	NA	NA	FALSE
+GJA4	NP_002051	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein alpha4 Connexin 37	NA	NA	NA	NA	FALSE
+GJA8	NP_005258	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein alpha8 Connexin 50	NA	NA	NA	NA	FALSE
+GJB2	NP_003995	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein beta2 Connexin 26	NA	NA	NA	NA	FALSE
+GJB4	NP_694944	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein beta4 Connexin 30.3	NA	NA	NA	NA	FALSE
+GJB5	NP_005259	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein beta5 Connexin 31	NA	NA	NA	NA	FALSE
+GJB6	NP_006774	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein beta6 Connexin 30	NA	NA	NA	NA	TRUE
+GJD3	NP_689343	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein Connexin 31.9	NA	NA	NA	NA	FALSE
+GJD2	NP_065711	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein Connexin 36	NA	NA	NA	NA	TRUE
+GJD4	NP_699199	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein Connexin 40.1	NA	NA	NA	NA	FALSE
+GJC2	NP_065168	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein Connexin 47	NA	NA	NA	NA	TRUE
+GJA10	NP_115991	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction protein Connexin 62	NA	NA	NA	NA	FALSE
+GJA5	NP_859054	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel alpha-5	#	NA	NA	NA	FALSE
+GJC1	NP_005488	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel alpha-7	#	NA	NA	NA	TRUE
+GJB1	NP_001091111	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel beta-1	#	1.A.24.1.2	NA	NA	TRUE
+GJB3	NP_076872	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel beta-3	#	NA	NA	NA	FALSE
+GJB7	NP_940970	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel beta-7 (Connexin-25)	NA	NA	NA	NA	TRUE
+GJC3	NP_853516	Connexin	1.A.24	The Gap Junction-forming Connexin (Connexin) Family	Ion Channels	gap junction-forming Connexin channel epsilon-1 (Connexin-31.3)	NA	NA	NA	NA	FALSE
+PANX1	NP_056183	Innexin	1.A.25	The Gap Junction-forming Innexin (Innexin) Family	Ion Channels	gap junction-forming Pannexin-1 channel	NA	NA	ATP	NA	TRUE
+PANX2	NP_443071	Innexin	1.A.25	The Gap Junction-forming Innexin (Innexin) Family	Ion Channels	gap junction-forming Pannexin-2 channel	NA	NA	ATP	NA	TRUE
+PANX3	NP_443191	Innexin	1.A.25	The Gap Junction-forming Innexin (Innexin) Family	Ion Channels	gap junction-forming Pannexin-3 channel	NA	NA	ATP	NA	FALSE
+GRIA4	NP_000820	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate gated ion channel AMPA 4	#	1.A.10.1.2	NT	Synaptic Transmission	TRUE
+GRIA2	NP_000817	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate gated ion channel ionotropic AMPA 2	#	NA	NT	Synaptic Transmission	TRUE
+GRID2	NP_001501	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog	NA	NA	NT	Synaptic Transmission	TRUE
+GRIA1	NP_000818	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (AMPA subtype)	NA	1.A.10.1.1	NT	Synaptic Transmission	TRUE
+GRIA3	NP_000819	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (AMPA subtype)	#	1.A.10.1.4	NT	Synaptic Transmission	TRUE
+GRID1	NP_060021	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIK1	NP_783300	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	#	NA	NT	Synaptic Transmission	TRUE
+GRIK2	NP_068775	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	#	NA	NT	Synaptic Transmission	TRUE
+GRIK3	NP_000822	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIK4	NP_055434	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIK5	NP_002079	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (kainate subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIN3A	NP_597702	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (NMDA subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIN3B	NP_619635	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	glutamate ionotropic channel receptor homolog (NMDA subtype)	NA	NA	NT	Synaptic Transmission	FALSE
+GRIN1	NP_015566	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	N-methyl-D-aspartate ionotropic channel receptor homolog (NMDA subtype)	#	NA	NT	Synaptic Transmission	TRUE
+GRIN2A	NP_000824	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	N-methyl-D-aspartate ionotropic channel receptor homolog (NMDA subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIN2B	NP_000825	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	N-methyl-D-aspartate ionotropic channel receptor homolog (NMDA subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+GRIN2C	NP_000826	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	N-methyl-D-aspartate ionotropic channel receptor homolog (NMDA subtype)	NA	1.A.10.1.3	NT	Synaptic Transmission	TRUE
+GRIN2D	NP_000827	GIC	1.A.10	The Glutamate-gated Ion Channel (GIC) Family of Neurotransmitter Receptors	Ion Channels	N-methyl-D-aspartate ionotropic channel receptor homolog (NMDA subtype)	NA	NA	NT	Synaptic Transmission	TRUE
+TMEM38A	NP_076979	TRIC	1.A.62	The Homotrimeric Cation Channel (TRIC) Family	Ion Channels	trimeric intracellular cation channel type A (TRIC-A)	NA	NA	Ca Na K	NA	TRUE
+TMEM38B	NP_060582	TRIC	1.A.62	The Homotrimeric Cation Channel (TRIC) Family	Ion Channels	trimeric intracellular cation channel type B (TRIC-B)	NA	NA	Ca Na K	NA	TRUE
+CLIC1	NP_001279	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 1	NA	1.A.12.1.2	Cl	NA	TRUE
+CLIC2	NP_001280	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 2	NA	NA	Cl	Gradient	TRUE
+CLIC3	NP_004660	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 3	NA	NA	Cl	Gradient	FALSE
+CLIC4	NP_039234	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 4	NA	NA	Cl	Gradient	TRUE
+CLIC5	NP_058625	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 5	NA	1.A.12.1.1	Cl	Gradient	TRUE
+CLIC6	NP_444507	CLIC	1.A.12	The Intracellular Chloride Channel (CLIC) Family	Ion Channels	chloride intracellular channel 6	NA	NA	Cl	Gradient	TRUE
+CLCC1	NP_055942	ICC	1.A.36	The Intracellular Chloride Channel (ICC) Family	Ion Channels	Mid1-related intracellular chloride ion channel	#	1.A.36.1.1	Cl	Gradient	FALSE
+KCNJ1	NP_722451	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	#	1.A.2.1.1	K	Gradient	TRUE
+KCNJ10	NP_002232	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	NA	NA	K	Gradient	TRUE
+KCNJ11	NP_000516	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	NA	NA	K	Gradient	TRUE
+KCNJ12	NP_066292	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	NA	NA	K	Gradient	TRUE
+KCNJ14	NP_037480	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	#	NA	K	Gradient	TRUE
+KCNJ15	NP_733933	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	#	NA	K	Gradient	FALSE
+KCNJ8	NP_004973	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	ATP-sensitive inward rectifier potassium ion channel	NA	NA	K	Gradient	TRUE
+KCNJ3	NP_002230	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	G protein-activated inward rectifier potassium channel	NA	NA	K	Gradient	TRUE
+KCNJ4	NP_004972	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	G protein-activated inward rectifier potassium channel	#	NA	K	Gradient	TRUE
+KCNJ5	NP_000881	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	G protein-activated inward rectifier potassium channel	NA	NA	K	Gradient	TRUE
+KCNJ6	NP_002231	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	G protein-activated inward rectifier potassium channel	NA	NA	K	Gradient	TRUE
+KCNJ9	NP_004974	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	G protein-activated inward rectifier potassium channel	NA	NA	K	Gradient	TRUE
+KCNJ13	NP_002233	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	inward rectifier potassium ion channel	NA	NA	K	Gradient	TRUE
+KCNJ16	NP_733938	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	inward rectifier potassium ion channel	#	NA	K	Gradient	TRUE
+KCNJ2	NP_000882	IRK-C	1.A.2	The Inward Rectifier K+ Channel (IRK-C) Family	Ion Channels	inward rectifier potassium ion channel	NA	1.A.2.1.2	K	Gradient	TRUE
+AQP1	NP_932766	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 1 (water channel)	NA	1.A.8.8.1	urea NH3 CO2	NA	TRUE
+AQP10	NP_536354	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 10 homolog (water channel)	NA	NA	urea NH3 CO2	NA	FALSE
+AQP2	NP_000477	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 2 (collecting duct water channel)	NA	NA	urea NH3 CO2	NA	FALSE
+AQP3	NP_004916	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 3 homolog (water channel)	NA	1.A.8.9.1	urea NH3 CO2	NA	FALSE
+AQP4	NP_004019	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 4 (mercurial-insensitive water channel)	#	NA	urea NH3 CO2	NA	TRUE
+AQP5	NP_001642	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 5 homolog (water channel)	NA	NA	urea NH3 CO2	NA	FALSE
+AQP6	NP_001643	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 6 homolog (water channel)	#	1.A.8.8.4	urea NH3 CO2	NA	FALSE
+AQP7	NP_001161	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 7 (water channel)	NA	NA	urea NH3 CO2	NA	FALSE
+AQP8	NP_001160	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 8 (water channel)	NA	NA	urea NH3 CO2	NA	FALSE
+AQP9	NP_066190	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin 9 homolog (water channel)	NA	1.A.8.9.2	urea NH3 CO2	NA	TRUE
+MIP	NP_036196	MIP	1.A.8	The Major Intrinsic Protein (MIP) Family	Ion Channels	Aquaporin homolog (lens fiber water channel)	NA	1.A.8.8.2	urea NH3 CO2	NA	TRUE
+HTR3A	NP_998786	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	5-hydroxytryptamine-gated chloride channel subunit 3A	#	NA	NT	Synaptic Transmission	TRUE
+HTR3B	NP_006019	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	5-hydroxytryptamine-gated chloride channel subunit 3B	NA	NA	NT	Synaptic Transmission	TRUE
+HTR3C	NP_570126	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	5-hydroxytryptamine-gated chloride channel subunit 3C	NA	NA	NT	Synaptic Transmission	FALSE
+HTR3D	NP_872343	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	5-hydroxytryptamine-gated chloride channel subunit 3D	NA	NA	NT	Synaptic Transmission	FALSE
+HTR3E	NP_872395	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	5-hydroxytryptamine-gated chloride channel subunit 3E	NA	NA	NT	Synaptic Transmission	FALSE
+CHRNA1	NP_000070	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	acetylcholine-activated cation-selective channel subunit alpha 1	#	NA	NT	Synaptic Transmission	FALSE
+CHRNA3	NP_000734	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	acetylcholine-activated cation-selective channel subunit alpha 3	NA	NA	NT	Synaptic Transmission	FALSE
+CHRFAM7A	NP_647536	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	acetylcholine-activated cation-selective channel subunit alpha 7	#	NA	NT	Synaptic Transmission	TRUE
+CHRND	NP_000742	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	acetylcholine-activated cation-selective channel subunit delta	NA	NA	NT	Synaptic Transmission	FALSE
+CHRNG	NP_005190	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	acetylcholine-activated cation-selective channel subunit gamma	NA	NA	NT	Synaptic Transmission	FALSE
+GABRA1	NP_000797	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 1	NA	NA	NT	Synaptic Transmission	TRUE
+GABRA2	NP_000798	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 2	NA	NA	NT	Synaptic Transmission	TRUE
+GABRA3	NP_000799	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 3	NA	NA	NT	Synaptic Transmission	TRUE
+GABRA4	NP_000800	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 4	NA	NA	NT	Synaptic Transmission	TRUE
+GABRA5	NP_000801	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 5	NA	NA	NT	Synaptic Transmission	TRUE
+GABRA6	NP_000802	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit alpha 6	NA	NA	NT	Synaptic Transmission	TRUE
+GABRB1	NP_000803	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit beta 1	NA	1.A.9.5.1	NT	Synaptic Transmission	TRUE
+GABRB2	NP_068711	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit beta 2	#	NA	NT	Synaptic Transmission	TRUE
+GABRB3	NP_000805	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit beta 3	#	NA	NT	Synaptic Transmission	TRUE
+GABRD	NP_000806	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit deta	NA	NA	NT	Synaptic Transmission	TRUE
+GABRE	NP_004952	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit epsilon	#	NA	NT	Synaptic Transmission	FALSE
+GABRG1	NP_775807	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit gama 1	NA	NA	NT	Synaptic Transmission	TRUE
+GABRG2	NP_944494	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit gama 2	#	NA	NT	Synaptic Transmission	TRUE
+GABRG3	NP_150092	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit gama 3	#	NA	NT	Synaptic Transmission	TRUE
+GABRP	NP_055026	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit pi	NA	NA	NT	Synaptic Transmission	FALSE
+GABRR1	NP_002033	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit rho 1	NA	NA	NT	Synaptic Transmission	TRUE
+GABRR2	NP_002034	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit rho 2	NA	NA	NT	Synaptic Transmission	TRUE
+GABRR3	NP_001099050	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit rho 3	NA	NA	NT	Synaptic Transmission	FALSE
+GABRQ	NP_061028	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	GABA-gated chloride channel subunit theta	NA	NA	NT	Synaptic Transmission	TRUE
+GLRA1	NP_000162	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	glycine-gated ion channel subunit alpha 1	NA	1.A.9.3.1	NT	Synaptic Transmission	FALSE
+GLRA2	NP_002054	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	glycine-gated ion channel subunit alpha 2	NA	NA	NT	Synaptic Transmission	TRUE
+GLRA3	NP_006520	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	glycine-gated ion channel subunit alpha 3	#	NA	NT	Synaptic Transmission	TRUE
+GLRA4	NP_001019623	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	glycine-gated ion channel subunit alpha 4	NA	NA	NT	Synaptic Transmission	FALSE
+GLRB	NP_000815	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	glycine-gated ion channel subunit beta	NA	NA	NT	Synaptic Transmission	TRUE
+ZACN	NP_851321	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	ligand-gated ion channel	?	NA	NT	Synaptic Transmission	FALSE
+CHRNA10	NP_065135	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit alpha 10	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA2	NP_000733	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit alpha 2	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA6	NP_004189	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit alpha 6	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA9	NP_060051	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit alpha 9	NA	NA	NT	Synaptic Transmission	FALSE
+CHRNB2	NP_000739	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit beta 2	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNB3	NP_000740	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit beta 3	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNB4	NP_000741	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal acetylcholine-activated cation-selective channel subunit beta 4	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA4	NP_000735	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal/nicotinic acetylcholine-activated cation-selective channel subunit alpha 4	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA5	NP_000736	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal/nicotinic acetylcholine-activated cation-selective channel subunit alpha 5	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNA7	NP_000737	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	neuronal/nicotinic acetylcholine-activated cation-selective channel subunit alpha 7	NA	1.A.9.1.1	NT	Synaptic Transmission	TRUE
+CHRNB1	NP_000738	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	nicotinic acetylcholine-activated cation-selective channel subunit beta 1	NA	NA	NT	Synaptic Transmission	TRUE
+CHRNE	NP_000071	LIC	1.A.9	"The Neurotransmitter Receptor, Cys loop, Ligand-gated Ion Channel (LIC) Family"	Ion Channels	nicotinic acetylcholine-activated cation-selective channel subunit epsilon	NA	NA	NT	Synaptic Transmission	TRUE
+SEC62	NP_003253	NSCC2	1.A.15	The Non-selective Cation Channel-2 (NSCC2) Family	Ion Channels	protein translocase Sec62 homolog	NA	1.A.15.2.1	Ca Na K	NA	TRUE
+PLN	NP_002658	PLB	1.A.50	The Phospholamban (Ca2+-channel and Ca2+-ATPase Regulator) (PLB) Family	Ion Channels	Phospholamban calcium ion channel	NA	NA	Ca	NA	FALSE
+SLN	NP_003054	PLB	1.A.50	The Phospholamban (Ca2+-channel and Ca2+-ATPase Regulator) (PLB) Family	Ion Channels	Sarcolipin calcium ion channel	NA	NA	Ca	NA	TRUE
+FXYD5	NP_054883	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	Phospholemman anion channel	#	NA	Na K	NA	TRUE
+FXYD1	NP_005022	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	Phospholemman chloride channel	#	NA	Na K	NA	TRUE
+FXYD3	NP_005962	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	Phospholemman chloride channel	#	NA	Na K	NA	TRUE
+FXYD6	NP_071286	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	Phospholemman chloride channel	NA	NA	Na K	NA	FALSE
+FXYD7	NP_071289	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	Phospholemman chloride channel	NA	NA	Na K	NA	TRUE
+FXYD4	NP_775183	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	sodium/potassium ion (Phospholemman homolog)?	NA	NA	Na K	NA	FALSE
+FXYD2	NP_001671	PLM	1.A.27	The Phospholemman (PLM) Family	Ion Channels	sodium/potassium-transporting ATPase gamma subunit	#	NA	Na K	NA	FALSE
+CKLF	NP_058647	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Chemokine-like factor (C32)	NA	NA	K	NA	FALSE
+CMTM1	NP_443725	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 1	NA	NA	K	NA	FALSE
+CMTM2	NP_653274	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 2	NA	NA	K	NA	FALSE
+MARVELD2	NP_001033692	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 2	#	NA	K	NA	FALSE
+CMTM3	NP_853531	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 3	#	NA	K	NA	TRUE
+CMTM4	NP_848933	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 4	#	NA	K	NA	TRUE
+CMTM5	NP_612469	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 5	#	NA	K	NA	FALSE
+CMTM6	NP_060271	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 6	NA	NA	K	NA	TRUE
+CMTM7	NP_612419	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 7	#	NA	K	NA	TRUE
+CMTM8	NP_849199	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	CKLF-like MARVEL transmembrane domain-containing protein 8	NA	NA	K	NA	TRUE
+MAL	NP_002362	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Myelin and lymphocyte protein (T-lymphocyte maturation-associated protein)	#	NA	K	NA	TRUE
+MAL2	NP_443118	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	myeloid-associated differentiation marker	NA	NA	K	NA	TRUE
+MYADM	NP_612382	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	myeloid-associated differentiation marker	#	NA	K	NA	TRUE
+OCLN	NP_002529	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Occludin	NA	NA	K	NA	TRUE
+PLLP	NP_057077	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Plasmolipin ion channel	NA	NA	K	NA	TRUE
+PLP2	NP_002659	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Proteolipid protein 2	NA	NA	K	NA	TRUE
+SYNGR1	NP_004702	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptogyrin-1	#	NA	K	NA	TRUE
+SYNGR2	NP_004701	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptogyrin-2	NA	NA	K	NA	TRUE
+SYNGR3	NP_004200	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptogyrin-3	NA	NA	K	NA	TRUE
+SYNGR4	NP_036583	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptogyrin-4	NA	NA	K	NA	FALSE
+SYPL1	NP_006745	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptophysin-like protein 1 (Pantophysin)	#	NA	K	NA	TRUE
+SYPL2	NP_001035799	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptophysin-like protein 2	NA	NA	K	NA	TRUE
+SYNPR	NP_653243	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	Synaptoporin	NA	NA	K	NA	TRUE
+MALL	NP_005425	Plasmolipin	1.A.64	The Plasmolipin (Plasmolipin) Family	Ion Channels	T-cell differentiation protein	NA	NA	K	NA	TRUE
+MCOLN1	NP_065394	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	lysosomal monovalent cation channel (Mucolipin-1)	NA	1.A.5.3.1	Ca Na K	NA	FALSE
+MCOLN2	NP_694991	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	lysosomal monovalent cation channel (Mucolipin-2)	NA	NA	Ca Na K	NA	FALSE
+MCOLN3	NP_060768	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	lysosomal monovalent cation channel (Mucolipin-3)	NA	NA	Ca Na K	NA	TRUE
+PKD1	NP_000287	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 1	#	1.A.5.1.1	Ca Na K	NA	TRUE
+PKD1L1	NP_612152	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 1	NA	NA	Ca Na K	NA	FALSE
+PKD1L2	NP_443124	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 1	NA	NA	Ca Na K	NA	FALSE
+PKDREJ	NP_006062	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 1	NA	NA	Ca Na K	NA	FALSE
+PKD2	NP_000288	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 2	NA	1.A.5.2.1	Ca Na K	NA	TRUE
+PKD2L1	NP_057196	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 2	NA	NA	Ca Na K	NA	TRUE
+PKD2L2	NP_055201	PCC	1.A.5	The Polycystin Cation Channel (PCC) Family	Ion Channels	Polycystin 2	NA	NA	Ca Na K	NA	TRUE
+PSEN1	NP_000012	Presenilin	1.A.54	The Presenilin ER Ca2+ Leak Channel (Presenilin) Family	Ion Channels	Presenilin calcium ion leak channel (Presenilin-1)	NA	NA	Ca	NA	TRUE
+PSEN2	NP_000438	Presenilin	1.A.54	The Presenilin ER Ca2+ Leak Channel (Presenilin) Family	Ion Channels	Presenilin calcium ion leak channel (Presenilin-2)	#	NA	Ca	NA	TRUE
+ITPR1	NP_002213	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	inositol 145-triphosphate receptor calcium ion channel type 1	#	NA	Ca	NA	TRUE
+ITPR2	NP_002214	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	inositol 145-triphosphate receptor calcium ion channel type 2	NA	1.A.3.2.1	Ca	NA	TRUE
+ITPR3	NP_002215	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	inositol 145-triphosphate receptor calcium ion channel type 3	NA	NA	Ca	NA	TRUE
+RYR2	NP_001026	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	ryanodine receptor calcium ion channel	NA	1.A.3.1.1	Ca	NA	TRUE
+RYR3	NP_001027	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	ryanodine receptor calcium ion channel	NA	NA	Ca	NA	TRUE
+RYR1	NP_001036188	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	ryanodine receptor calcium ion channel type 1	#	NA	Ca	NA	TRUE
+RYR1	NP_000531	RIR-CaC	1.A.3	"The Ryanodine-Inositol 1,4,5-triphosphate Receptor Ca2+ Channel (RIR-CaC) Family"	Ion Channels	ryanodine receptor calcium ion channel type 1	#	NA	Ca	NA	TRUE
+TRPC4	NP_057263	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	short transient receptor potential calcium channel 4	NA	NA	Ca	NA	TRUE
+TRPC5	NP_036603	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	short transient receptor potential calcium channel 5	NA	NA	Ca	NA	TRUE
+TRPC6	NP_004612	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	short transient receptor potential cation channel	NA	NA	Ca	NA	TRUE
+TRPC7	NP_065122	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	short transient receptor potential cation channel	NA	1.A.4.1.2	Ca	NA	TRUE
+TRPC1	NP_003295	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPC1 store-operated calcium ion channel (activated by the metabotropic [G- protein-dependent] gluta	NA	1.A.4.1.3	Ca	NA	TRUE
+TRPC3	NP_003296	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPC3 store-operated non-selective cation channel (activated by thapsigargin and 2 acyl glycerol; fo	NA	1.A.4.1.4	Ca	NA	TRUE
+TRPM1	NP_002411	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM1 Melastatin 1	NA	1.A.4.5.2	Ca	NA	FALSE
+TRPM2	NP_003298	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM2 ADP-ribose/NAD/pyrimidine nucleotide-gated calcium ion permeable cation	NA	1.A.4.5.5	Ca	NA	TRUE
+TRPM3	NP_079247	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM3 calcium ion permeable store-operated channel	#	1.A.4.5.6	Ca	NA	TRUE
+TRPM4	NP_060106	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM4 calcium ion-activated nonselective cation (sodium and potassium ion) channel (non-permeable to	NA	1.A.4.5.4	Ca	NA	TRUE
+TRPM5	NP_055370	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM5 transient receptor potential cation channel subfamily M member 5	NA	1.A.4.5.3	Ca	NA	TRUE
+TRPM6	NP_060132	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM6 intestinal/renal magnesium ion absorption magnesium ion influx channel; 5x higher affinity for	NA	1.A.4.5.8	Ca	NA	TRUE
+TRPM7	NP_060142	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM7 Non-selective channel kinase-1; magnesium ion-ATP-regulated divalent cation channel; assemble	NA	1.A.4.5.1	Ca	NA	TRUE
+TRPM8	NP_076985	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPM8 cold-sensitive (<22C) and menthol-sensitive cation-selective channel	NA	1.A.4.5.7	Ca	NA	FALSE
+TRPV2	NP_057197	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPV2 noxious heat (>52C)-sensitive vanilloid-like receptor cation selective channel	NA	1.A.4.2.4	Ca	NA	TRUE
+TRPV3	NP_659505	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPV3 temperature (heat; >39C)-sensitive capsaicin-insensitive receptor cation-selective channel	NA	1.A.4.2.9	Ca	NA	TRUE
+TRPV5	NP_062815	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPV5 epithelial calcium ion channel (ECaCl) (forms homo- and heterotetrameric channels with TRPV6;	NA	1.A.4.2.10	Ca	NA	TRUE
+TRPV6	NP_061116	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	TRPV6 epithelial calcium ion channel (ECaC2) (forms homo- and heterotetrameric channels with TRPV5;	NA	1.A.4.2.11	Ca	NA	FALSE
+TRPV1	NP_061197	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	vanilloid receptor subtype 1	#	1.A.4.2.1	Ca	NA	FALSE
+TRPV4	NP_067638	TRP-CC	1.A.4	The Transient Receptor Potential Ca2+ Channel (TRP-CC) Family	Ion Channels	vanilloid receptor-related osmotically activated channel	#	1.A.4.2.5	Ca	NA	FALSE
+SLC14A1	NP_056949	UT	1.A.28	The Urea Transporter (UT) Family	Ion Channels	urea	NA	1.A.28.1.3	urea	NA	TRUE
+SLC14A2	NP_009094	UT	1.A.28	The Urea Transporter (UT) Family	Ion Channels	urea	NA	1.A.28.1.1	urea	NA	FALSE
+CATSPER1	NP_444282	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cation channel	NA	1.A.1.19.1	Ca Na K	Gradient	FALSE
+CATSPER3	NP_821138	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cation channel	NA	NA	Ca Na K	Gradient	FALSE
+NALCN	NP_443099	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cation channel	NA	NA	Na	Gradient	TRUE
+TPCN1	NP_060371	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cation channel	NA	NA	Ca	Gradient	TRUE
+TPCN2	NP_620714	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cation channel	NA	NA	Ca	Gradient	TRUE
+CNGA1	NP_000078	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cGMP-gated cation channel	NA	1.A.1.5.3	Ca Na K	Gradient	FALSE
+CNGA2	NP_005131	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cyclic nucleotide-gated cation channel (CNG channel 2)	NA	NA	Ca Na K	Gradient	FALSE
+CNGA3	NP_001289	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cyclic nucleotide-gated cation channel alpha 3 (CNG channel alpha 3)	#	1.A.1.5.1	Ca Na K	Gradient	TRUE
+CNGA4	NP_001032406	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cyclic nucleotide-gated cation channel alpha 4	NA	NA	Ca Na K	Gradient	TRUE
+CNGB3	NP_061971	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	cyclic nucleotide-gated cation channel beta 3	NA	1.A.1.5.3	Ca Na K	Gradient	TRUE
+HCN1	NP_066550	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	hyperpolarization activated cyclic nucleotide-gated potassium ion channel 1	NA	NA	K	Gradient	TRUE
+HCN2	NP_001185	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	hyperpolarization activated cyclic nucleotide-gated potassium ion channel 2	NA	NA	K	Gradient	TRUE
+HCN4	NP_005468	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	hyperpolarization activated cyclic nucleotide-gated potassium ion channel 4	NA	1.A.1.5.2	K	Gradient	TRUE
+KCNN4	NP_002241	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	intermediate conductance calcium-activated potassium ion channel protein 1	NA	1.A.1.16.2	K	Gradient	TRUE
+CACNA1C	NP_000710	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	L-type calcium ion channel alpha 1C subunit	NA	NA	Ca	Synaptic Transmission	TRUE
+CACNA1D	NP_000711	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	L-type calcium ion channel alpha 1D subunit	NA	1.A.1.11.1	Ca	Synaptic Transmission	TRUE
+CACNA1F	NP_005174	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	L-type calcium ion channel alpha 1F subunit	NA	NA	Ca	Synaptic Transmission	TRUE
+CACNA1S	NP_000060	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	L-type calcium ion channel alpha 1S subunit	NA	1.A.1.11.2	Ca	Synaptic Transmission	TRUE
+KCNMA1	NP_002238	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	large conductance calcium-activated potassium channel subfamily M alpha member 1	#	1.A.1.3.2	K	Gradient	TRUE
+CACNA1B	NP_000709	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	N-type calcium ion channel alpha 1B subunit	NA	NA	Ca	Synaptic Transmission	TRUE
+CACNA1A	NP_075461	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	P/Q-type calcium potassium ion channel subunit alpha 1A	#	NA	Ca	Synaptic Transmission	TRUE
+KCNB1	NP_004966	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shab-related subfamily B member 1	NA	NA	K	Gradient	TRUE
+KCNB2	NP_004761	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shab-related subfamily B member 2	NA	NA	K	Gradient	TRUE
+KCNA1	NP_000208	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 1	NA	NA	K	Gradient	TRUE
+KCNA10	NP_005540	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 10	NA	NA	K	Gradient	FALSE
+KCNA2	NP_004965	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 2	NA	NA	K	Gradient	TRUE
+KCNA3	NP_002223	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 3	NA	1.A.1.2.4	K	Gradient	TRUE
+KCNA4	NP_002224	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 4	NA	NA	K	Gradient	TRUE
+KCNA5	NP_002225	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 5	NA	NA	K	Gradient	TRUE
+KCNA6	NP_002226	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 6	NA	NA	K	Gradient	FALSE
+KCNA7	NP_114092	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel shaker-related subfamily A member 7	NA	NA	K	Gradient	FALSE
+KCND1	NP_004970	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shal-related subfamily D member 1	NA	NA	K	Gradient	TRUE
+KCND2	NP_036413	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shal-related subfamily D member 2	NA	NA	K	Gradient	TRUE
+KCND3	NP_004971	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shal-related subfamily D member 3	#	NA	K	Gradient	TRUE
+KCNC1	NP_004967	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shaw-related subfamily C member 1	NA	NA	K	Gradient	TRUE
+KCNC2	NP_715624	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shaw-related subfamily C member 2	#	NA	K	Gradient	TRUE
+KCNC3	NP_004968	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shaw-related subfamily C member 3	NA	NA	K	Gradient	TRUE
+KCNC4	NP_004969	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel Shaw-related subfamily C member 5	#	NA	K	Gradient	TRUE
+KCNF1	NP_002227	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily F member 1	NA	NA	K	Gradient	TRUE
+KCNG1	NP_002228	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily G member 1	#	NA	K	Gradient	TRUE
+KCNG2	NP_036415	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily G member 2	NA	NA	K	Gradient	TRUE
+KCNG3	NP_579875	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily G member 3	#	NA	K	Gradient	TRUE
+KCNG4	NP_758857	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily G member 4	#	NA	K	Gradient	FALSE
+KCNH1	NP_002229	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 1	#	NA	K	Gradient	TRUE
+KCNH2	NP_742053	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 2	#	NA	K	Gradient	TRUE
+KCNH3	NP_036416	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 3	NA	NA	K	Gradient	TRUE
+KCNH4	NP_036417	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 4	NA	NA	K	Gradient	TRUE
+KCNH5	NP_758963	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 5	#	NA	K	Gradient	TRUE
+KCNH6	NP_110406	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 6	#	NA	K	Gradient	FALSE
+KCNH7	NP_150375	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 7	#	NA	K	Gradient	TRUE
+KCNH8	NP_653234	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily H member 8	NA	NA	K	Gradient	TRUE
+KCNK1	NP_002236	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 1	NA	1.A.1.8.1	K	Gradient	TRUE
+KCNK10	NP_612191	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 10	#	NA	K	Gradient	TRUE
+KCNK12	NP_071338	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 12	NA	NA	K	Gradient	TRUE
+KCNK13	NP_071337	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 13	NA	NA	K	Gradient	TRUE
+KCNK15	NP_071753	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 15	NA	NA	K	Gradient	TRUE
+KCNK16	NP_115491	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 16	NA	NA	K	Gradient	FALSE
+KCNK17	NP_113648	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 17	NA	NA	K	Gradient	FALSE
+KCNK18	NP_862823	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 18 (two-pore domain potassium channel TRESK-1)	NA	NA	K	Gradient	FALSE
+KCNK2	NP_055032	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 2 isoform 2	#	1.A.1.9.1	K	Gradient	TRUE
+KCNK3	NP_002237	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 3	NA	NA	K	Gradient	TRUE
+KCNK4	NP_201567	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 4	#	NA	K	Gradient	TRUE
+KCNK5	NP_003731	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 5	NA	1.A.1.8.2	K	Gradient	FALSE
+KCNK6	NP_004814	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 6	NA	NA	K	Gradient	TRUE
+KCNK7	NP_203133	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily K member 7	#	NA	K	Gradient	TRUE
+KCNQ1	NP_000209	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily KQT member 1	NA	1.A.1.15.1	K	Gradient	TRUE
+KCNQ2	NP_742105	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily KQT member 2	#	1.A.1.15.2	K	Gradient	TRUE
+KCNQ3	NP_004510	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily KQT member 3	NA	1.A.1.15.3	K	Gradient	TRUE
+KCNQ4	NP_004691	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily KQT member 4	#	1.A.1.15.4	K	Gradient	TRUE
+KCNQ5	NP_062816	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily KQT member 5	NA	NA	K	Gradient	TRUE
+KCNS1	NP_002242	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily S member 1	NA	NA	K	Gradient	TRUE
+KCNS2	NP_065748	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily S member 2	NA	NA	K	Gradient	TRUE
+KCNS3	NP_002243	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily S member 3	NA	NA	K	Gradient	TRUE
+KCNT1	NP_065873	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily T member 1	NA	NA	K	Gradient	TRUE
+KCNT2	NP_940905	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily T member 2	NA	NA	K	Gradient	TRUE
+KCNU1	NP_001027006	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily U member 1	NA	NA	K	Gradient	FALSE
+KCNV1	NP_055194	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily V member 1	NA	NA	K	Gradient	TRUE
+KCNV2	NP_598004	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium ion channel subfamily V member 2	NA	NA	K	Gradient	TRUE
+HCN3	NP_065948	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 3	NA	NA	K	Gradient	TRUE
+CACNA1E	NP_000712	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	R-type calcium ion channel alpha 1E subunit	NA	1.A.1.11.3	Ca	Synaptic Transmission	TRUE
+KCNN1	NP_002239	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	small conductance calcium-activated potassium channel	NA	NA	K	Gradient	TRUE
+KCNN2	NP_067627	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	small conductance calcium-activated potassium channel	#	1.A.1.16.1	K	Gradient	TRUE
+KCNN3	NP_002240	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	small conductance calcium-activated potassium ion channel	#	NA	K	Gradient	TRUE
+SCN1A	NP_008851	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type I alpha subunit	NA	NA	Na	Gradient	TRUE
+SCN2A	NP_066287	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type II alpha subunit	#	NA	Na	Gradient	TRUE
+SCN3A	NP_008853	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type III subunit alpha	#	1.A.1.10.1	Na	Gradient	TRUE
+SCN4A	NP_000325	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type IV alpha subunit	NA	NA	Na	Gradient	FALSE
+SCN9A	NP_002968	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type IX alpha subunit	NA	NA	Na	Gradient	TRUE
+SCN5A	NP_000326	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type V subunit alpha	#	NA	Na	Gradient	TRUE
+SCN7A	NP_002967	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type VII alpha subunit	NA	NA	Na	Gradient	TRUE
+SCN8A	NP_055006	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type VIII alpha subunit	NA	NA	Na	Gradient	TRUE
+SCN10A	NP_006505	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type X alpha subunit	NA	NA	Na	Gradient	FALSE
+SCN11A	NP_054858	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sodium ion channel type XI alpha subunit	NA	NA	Na	Gradient	TRUE
+CATSPER2	NP_742093	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	sperm-associated cation channel	#	1.A.1.19.2	Ca Na K	Gradient	FALSE
+CACNA1H	NP_066921	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	T-type calcium channel alpha-1H subunit	#	NA	Ca	Synaptic Transmission	TRUE
+CACNA1H	NP_001005407	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	T-type calcium channel alpha-1H subunit	#	NA	Ca	Synaptic Transmission	TRUE
+CACNA1I	NP_066919	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	T-type calcium ion channel alpha 1I subunit	#	NA	Ca	Synaptic Transmission	TRUE
+CACNA1G	NP_938406	VIC	1.A.1	The Voltage-gated Ion Channel (VIC) Superfamily	Ion Channels	T-type calcium ion channel subunit alpha-1G	#	NA	Ca	Synaptic Transmission	TRUE
