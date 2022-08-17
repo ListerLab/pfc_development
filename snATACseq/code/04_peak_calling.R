@@ -24,10 +24,10 @@ system("mkdir snATACseq/bedfiles")
 system("mkdir snATACseq/peaks")
 
 # 1. read in data and blacklist
-sc <- loadArchRProject("snATACseq/clustering_annotation")
+sc <- loadArchRProject("snATACseq/clustering_final")
 blacklist <- import("annotation/ENCFF001TDO.bed")
 
-atac_samples <- read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
+atac_samples <- read_xlsx("annotation/scatac_neuronal_maturation.xlsx")
 atac_samples <- atac_samples[atac_samples$Used=="Yes",]
 
 # 2. make bedfiles for pseudo-pseudobulks for cluster and sample
@@ -121,7 +121,8 @@ call_pseudo <- function(cellGroup, ArrowFile, rep=2){
     for(k in 1:rep){
         macsPeaks(paste0("snATACseq/bedfiles_pseudo/", cellGroup, "_", ArrowFile, 
         "_", "pseudo", k, "_blacklistrm.bed"), 
-        paste0("snATACseq/bedfiles_pseudo/", cellGroup, "_", ArrowFile, "_pseudo", k))
+        paste0("snATACseq/bedfiles_pseudo/", cellGroup, "_", ArrowFile, 
+        "_pseudo", k))
     }
     
 }
@@ -153,14 +154,15 @@ call_pseudo_cluster <- function(cell_type, bed_files){
         cell_type, "_pseudo2.bed"), format="bed")
     
     macsPeaks(paste0("snATACseq/bedfiles_pseudo/", cell_type, "_pseudo1.bed"), 
-        paste0("bedfiles_pseudo/", cell_type, "_pseudo1"))
+        paste0("snATACseq/bedfiles_pseudo/", cell_type, "_pseudo1"))
     macsPeaks(paste0("snATACseq/bedfiles_pseudo/", cell_type, "_pseudo2.bed"), 
-        paste0("bedfiles_pseudo/", cell_type, "_pseudo2"))
+        paste0("snATACseq/bedfiles_pseudo/", cell_type, "_pseudo2"))
     
 }
 
 mclapply(cell_types, function(x) call_pseudo_cluster(x, bed_files), mc.cores=10)
- 
+system("rm snATACseq/bedfiles_pseudo/*peaks.xls")
+
 # 5. make bedfiles for pseudobulk for cluster and sample
 
 make_beds<- function(ArrowFile, ArrowFileName, 
@@ -183,18 +185,18 @@ make_beds<- function(ArrowFile, ArrowFileName,
 }
 
 mcmapply(function(X,Y) make_beds(X, Y, cellGroups_new), 
-         X=ArrowFiles, Y=names(ArrowFiles),
-         mc.cores=length(ArrowFiles))
+  X=ArrowFiles, Y=names(ArrowFiles),
+  mc.cores=length(ArrowFiles))
 
 # 6. call peaks for pseudobulk
 
 call_peaks <- function(cellGroup, ArrowFile){
     
-    macsPeaks(paste0("snATACseq/bedfiles/", cellGroup, "_", ArrowFile, "_blacklistrm.bed"), 
-            paste0("snATACseq/bedfiles/", cellGroup, "_", ArrowFile))
+    macsPeaks(paste0("snATACseq/bedfiles/", cellGroup, "_", ArrowFile, 
+      "_blacklistrm.bed"), paste0("snATACseq/bedfiles/", cellGroup,
+      "_", ArrowFile))
 
 }
-
 
 mclapply(input, function(x) call_peaks(x[1], x[2]), mc.cores=10)
 
@@ -227,16 +229,16 @@ link3 <- "snATACseq/peaks/"
 
 idr_call <- function(input1, link1=link1, link2=link2, link3=link3){
     
-    system(paste0("source activate idr_filtering
-                  idr --samples ", link1, input1, "_pseudo1_peaks.narrowPeak ",  
-                  link1, input1,
-                  "_pseudo2_peaks.narrowPeak --peak-list ", link2, 
-                  input1,
-                  "_peaks.narrowPeak --input-file-type ",
-                  "narrowPeak --output-file ", link3, input1,
-                  "_IDR0.05.narrowPeak ",
-                  "--rank p.value --soft-idr-threshold 0.05 ",
-                  "--use-best-multisummit-IDR"))
+    system(paste0("source activate idr 
+      idr --samples ", link1, input1, "_pseudo1_peaks.narrowPeak ",  
+      link1, input1,
+      "_pseudo2_peaks.narrowPeak --peak-list ", link2, 
+      input1,
+      "_peaks.narrowPeak --input-file-type ",
+      "narrowPeak --output-file ", link3, input1,
+      "_IDR0.05.narrowPeak ",
+      "--rank p.value --soft-idr-threshold 0.05 ",
+      "--use-best-multisummit-IDR"))
     idr_trans <- -log(0.05)/log(10)
     dat <- fread(paste0(link3, input1, "_IDR0.05.narrowPeak"), data.table = FALSE)
     ind <- (dat[,9] >= idr_trans & dat[,12] >= idr_trans)

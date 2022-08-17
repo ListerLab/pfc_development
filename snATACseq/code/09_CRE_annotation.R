@@ -13,7 +13,7 @@ library(parallel)
 # 1. read in data
 
 processed_data <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 pearson_corr_sig <- readRDS("snATACseq/processed_data/pearson_corr_sig.RDS")
 
 
@@ -37,4 +37,4 @@ for(i in 1:length(processed_data)){
 # 3. save peaks
 
 saveRDS(processed_data, file=
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")

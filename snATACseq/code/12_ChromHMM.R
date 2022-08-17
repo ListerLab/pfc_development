@@ -13,18 +13,18 @@ library(parallel)
 # 1. overlap with CREs
 
 peaks <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 
 cis <- lapply(peaks, function(x) x[!is.na(x$CRE)])
 cis <- as(cis, "GRangesList")
 cis <- unlist(cis)
 cis <- reduce(cis)
 
-encode_anno <- read.table("annotation/Encode/EIDlegend.txt", sep="\t")
+encode_anno <- read.table("annotation/encode/EIDlegend.txt", sep="\t")
 
 ind <- grepl("Liver$|Brain|Esophagus$|Lung$|Ovary$|Placenta$|Lung$|Pancreas$|Spleen$|Thymus$|Left Ventricle$", 
              encode_anno$V2)
-files <- paste0("annotation/Encode/", 
+files <- paste0("annotation/encode/", 
     encode_anno$V1[ind], "_25_imputed12marks_dense.bed.gz")
 
 
@@ -47,8 +47,8 @@ all_encode_comparisons <- mclapply(files, function(x) compare_encode(x, cis),
 all_encode_comparisons <- do.call(rbind, all_encode_comparisons)
 rownames(all_encode_comparisons) <- encode_anno$V2[ind]  
 
-write.table(all_encode_comparisons, file="snATACseq/processed_data/ChromHMM_CRE.txt", quote=FALSE,
-    sep="\t")
+write.table(all_encode_comparisons, 
+  file="snATACseq/processed_data/chrom_hmm_cre.txt", quote=FALSE, sep="\t")
 
 # 2. cell type specific overlap
 
@@ -69,8 +69,9 @@ for(i in 1:length(peaks)){
 }
 
 all_encode_comparisons  <- do.call(rbind, all_encode_comparisons)
-write.table(all_encode_comparisons, file="snATACseq/processed_data/ChromHMM_Peaks_CellTypes.txt", 
-    quote=FALSE, sep="\t")
+write.table(all_encode_comparisons, 
+  file="snATACseq/processed_data/chrom_hmm_peaks_cell_types.txt", quote=FALSE, 
+  sep="\t")
 
 
 # 3. overlap with all peaks
@@ -81,18 +82,9 @@ all_encode_comparisons <- mclapply(files, function(x)
     compare_encode(x, all_peaks), mc.cores=5)
 all_encode_comparisons <- do.call(rbind, all_encode_comparisons)
 rownames(all_encode_comparisons) <- encode_anno$V2[ind]  
-write.table(all_encode_comparisons, file="snATACseq/processed_data/ChromHMM_AllPeaks.txt", quote=FALSE,
-            sep="\t")
+write.table(all_encode_comparisons, 
+  file="snATACseq/processed_data/chrom_hmm_all_peaks.txt", quote=FALSE, sep="\t")
 
 
-# 4. overlap with fetal peaks
-
-all_peaks_fetal <- all_peaks[all_peaks$Fetal]
-all_encode_comparisons <- mclapply(files, function(x) 
-    compare_encode(x, all_peaks_fetal), mc.cores=5)
-all_encode_comparisons <- do.call(rbind, all_encode_comparisons)
-rownames(all_encode_comparisons) <- encode_anno$V2[ind]  
-write.table(all_encode_comparisons, file="snATACseq/processed_data/ChromHMM_FetalPeaks.txt", quote=FALSE,
-            sep="\t")
 
 

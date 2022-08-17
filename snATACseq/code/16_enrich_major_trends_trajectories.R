@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
 #                                                                             #
-# Regions for gene trends motif enrichment                                    #
+# Motif enrichment in CREs of major trends per trajectory                     #
 #                                                                             #
 #                                                                             #    
 ###############################################################################
@@ -12,6 +12,9 @@ library(ggplot2)
 library(SingleCellExperiment)
 library(reshape2)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(ArchR)
+
+source("snATACseq/R/functions_TF.R")
 
 # 1. read in data
 
@@ -24,10 +27,10 @@ paths <- "snRNAseq/processed_data/"
 
 gene_trends <- read.csv(paste0(paths, "gene_cluster_ids.csv"))
 gene_trends$cluster_trend <- paste0(gene_trends$major_clust, ".", 
-    gene_trends$gene_trend)
+    gene_trends$major_trend)
 
 peaks <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 
 sce <- readRDS(paste0(paths,
    "/2020-12-18_whole-tissue_post-restaged-GABA-clustering.RDS"))
@@ -41,6 +44,8 @@ peaks <- lapply(peaks, function(x) {
     ind <- setdiff(1:length(x), unique(hits@from))
     x[ind]
 })
+
+peaks <- peaks[-2]
 
 # 3. find CREs linked to cell types and gene trends
 
@@ -62,26 +67,6 @@ cell_types <- matrix(c("Astro", "Astro",
 genes_cluster_trends <- split(gene_trends$gene_name, gene_trends$cluster_trend)
 # remove cell type and gene trends combinations with less than 10 CREs
 genes_cluster_trends <- genes_cluster_trends[!lengths(genes_cluster_trends)<10]
-genes_cluster_trends$`L2-3_CUX2.0` <- genes_cluster_trends$`L2-3_CUX2.0`[!is.na(
-    genes_cluster_trends$`L2-3_CUX2.0`)]
-
-obtain_peak_ids <- function(peak_tmp, genes_cluster_trends, cluster_tmp, 
-                            cell_types){
-    
-    cluster_tmp <- cell_types[cell_types[,2] %in% cluster_tmp,1]
-    ind <- sapply(cluster_tmp, function(x) 
-        grepl(paste0(x, "."), names(genes_cluster_trends)))
-    if(class(ind)[[1]]=="matrix"){
-        ind <- apply(ind, 1, function(x) any(x))
-    }
-    tmp <- genes_cluster_trends[ind]
-    ind <- lapply(tmp, function(x) unlist(sapply(x, function(y) 
-        grep(y, peak_tmp$CRE))))
-    split_tmp <- lapply(ind, function(x) peak_tmp[x])
-    split_tmp
-}
-
-peaks <- peaks[-2]
 
 cre_trends <- mapply(function(X, Y) obtain_peak_ids(X, genes_cluster_trends, 
     Y, cell_types), X=peaks, Y=names(peaks))
@@ -97,7 +82,6 @@ for(i in 1:length(cre_trends)){
     names(cre_trends[[i]]) <- paste0(names(cre_trends)[i], ".", 
         names(cre_trends[[i]]))
 }
-
 
 for(i in 1:length(cre_trends)){
     
@@ -117,32 +101,85 @@ for(i in 1:length(cre_trends)){
     
 }
 
-saveRDS(cre_trends, file="snATACseq/processed_data/tf_gene_trends_trajectories_gr.RDS")
-cre_trends <- readRDS("snATACseq/processed_data/tf_gene_trends_trajectories_gr.RDS")
-## 4. make downwards 
+peaks_of_interest <- cre_trends
 
-down_up <- c(`0`="up" , `1`="down", `2`="down", `3`="up", `4`="down", `5`="interup", 
-             `6`="up", `7`="up", `8`="interdown", `9`="down", `10`="down", `11`="interup", 
-             `12`="interdown", `13`="interup")
+saveRDS(peaks_of_interest, 
+  file="snATACseq/processed_data/major_trends_trajectories_gr.rds")
 
-cre_general <- list()
+# 4. load ArchR project
 
-for(i in 1:length(cre_trends)){
+addArchRGenome("hg19")
+addArchRThreads(threads = 10)
+
+atac_samples <- read_xlsx("annotation/scatac_neuronal_maturation.xlsx")
+atac_samples <- atac_samples[atac_samples$Used=="Yes",]
+
+sc <- loadArchRProject("clustering_final")
+sc$Anno1 <- gsub(" ", "_", sc$Anno1)
+sc$Anno1 <- gsub("/", "_", sc$Anno1)
+
+stages <- c("Fetal", "Neonatal", "Infancy", "Childhood", "Adolescence", "Adult")
+
+peaks <- readRDS(
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
+peaks <- peaks[-2]
+
+for(i in 1:length(peaks)){
     
-    tmp_names <- names(cre_trends[[i]])
-    tmp_names <- sapply(tmp_names, function(x) 
-        strsplit(x, ".", fixed=TRUE)[[1]][3])
-    tmp_down <- down_up[tmp_names]
-    
-    split_names <- split(names(tmp_names), tmp_down)
-    tmp <- lapply(split_names, function(x) 
-        unlist(as(cre_trends[[i]][x], "GRangesList")))
-    names(tmp) <- paste0(names(cre_trends)[i], ".", names(cre_trends)[i],
-                         ".", names(tmp))
-    cre_general[[i]] <- tmp
-    
+    peaks[[i]]@elementMetadata <- peaks[[i]]@elementMetadata[, c(stages, "CRE",
+          "peakType")]
+    peaks[[i]]@elementMetadata$cellType <- names(peaks)[i]
 }
 
-names(cre_general) <- names(cre_trends)
-saveRDS(cre_general, file="snATACseq/processed_data/tf_general_trends_trajectories_gr.RDS")    
+# 2. enrichment for each cell type
+
+enriched_list <- list()
+
+for(i in 1:length(peaks)){
     
+    traj <- names(peaks)[i]
+    sc_sub <- sc[sc$Anno1==names(peaks)[i],]
+    
+    sc_sub <- addPeakSet(sc_sub, peaks[[i]], force=TRUE)
+    sc_sub <- addPeakMatrix(sc_sub, force=TRUE)
+    sc_sub <- addMotifAnnotations(ArchRProj = sc_sub, motifSet = "JASPAR2018", 
+                          name = "Motif", force=TRUE)
+    set.seed(10)
+    bgdPeaks <- SummarizedExperiment::assay(getBgdPeaks(sc_sub, method="ArchR"))
+    matches <- getMatches(sc_sub, NULL)
+    
+    enriched_list[[i]] <- lapply(peaks_of_interest[[traj]], function(x) 
+        compute_enrich_traj(x, bgdPeaks, matches))
+}
+
+# 3. save motifs
+
+names(enriched_list) <- names(peaks)
+
+for(i in 1:length(enriched_list)){
+    
+    for(j in 1:length(enriched_list[[i]])){
+        
+        enriched_list[[i]][[j]]$trajectory <- names(enriched_list[[i]])[j]
+        enriched_list[[i]][[j]]$pvalue <- 10^(-enriched_list[[i]][[j]]$mlog10p)
+    }
+    
+    enriched_list[[i]] <- do.call(rbind, enriched_list[[i]])
+    enriched_list[[i]]$adjusted_pvalue <- p.adjust(enriched_list[[i]]$pvalue, 
+      "fdr")
+}
+
+test <- lapply(enriched_list, function(x) x)
+test <- do.call(rbind, test)
+
+test$feature <- sapply(test$feature, function(x) strsplit(x, "_")[[1]][1])
+test$general_trend <- sapply(test$trajectory, function(x) 
+    strsplit(x, ".", fixed=TRUE)[[1]][3])
+test$trajectory <- sapply(test$trajectory, function(x) 
+    strsplit(x, ".", fixed=TRUE)[[1]][1])
+
+write.csv(test, 
+  file="snATACseq/processed_data/tf_general_trends_trajectories.csv", 
+    row.names=FALSE, quote=FALSE)
+
+

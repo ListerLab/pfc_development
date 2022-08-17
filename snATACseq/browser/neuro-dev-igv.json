@@ -32,7 +32,7 @@
 		},
 		{
 			"name" : "Astro_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -48,7 +48,7 @@
 		},
 		{
 			"name" : "Astro_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -64,7 +64,7 @@
 		},
 		{
 			"name" : "Astro_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -80,7 +80,7 @@
 		},
 		{
 			"name" : "Astro_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -96,7 +96,7 @@
 		},
 		{
 			"name" : "Astro_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -112,7 +112,7 @@
 		},
 		{
 			"name" : "Astro_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Astro_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -128,7 +128,7 @@
 		},
 		{
 			"name" : "CGE_der_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -144,7 +144,7 @@
 		},
 		{
 			"name" : "CGE_der_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -160,7 +160,7 @@
 		},
 		{
 			"name" : "CGE_der_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -176,7 +176,7 @@
 		},
 		{
 			"name" : "CGE_der_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -192,7 +192,7 @@
 		},
 		{
 			"name" : "CGE_der_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -208,7 +208,7 @@
 		},
 		{
 			"name" : "CGE_der_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/CGE_der_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -224,7 +224,7 @@
 		},
 		{
 			"name" : "L2_3_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -240,7 +240,7 @@
 		},
 		{
 			"name" : "L2_3_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -256,7 +256,7 @@
 		},
 		{
 			"name" : "L2_3_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -272,7 +272,7 @@
 		},
 		{
 			"name" : "L2_3_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -288,7 +288,7 @@
 		},
 		{
 			"name" : "L2_3_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -304,7 +304,7 @@
 		},
 		{
 			"name" : "L2_3_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L2_3_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -320,7 +320,7 @@
 		},
 		{
 			"name" : "L4_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -336,7 +336,7 @@
 		},
 		{
 			"name" : "L4_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -352,7 +352,7 @@
 		},
 		{
 			"name" : "L4_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -368,7 +368,7 @@
 		},
 		{
 			"name" : "L4_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -384,7 +384,7 @@
 		},
 		{
 			"name" : "L4_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -400,7 +400,7 @@
 		},
 		{
 			"name" : "L4_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L4_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -416,7 +416,7 @@
 		},
 		{
 			"name" : "L5_6_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -432,7 +432,7 @@
 		},
 		{
 			"name" : "L5_6_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -448,7 +448,7 @@
 		},
 		{
 			"name" : "L5_6_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -464,7 +464,7 @@
 		},
 		{
 			"name" : "L5_6_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -480,7 +480,7 @@
 		},
 		{
 			"name" : "L5_6_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -496,7 +496,7 @@
 		},
 		{
 			"name" : "L5_6_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/L5_6_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -512,7 +512,7 @@
 		},
 		{
 			"name" : "MGE_der_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -528,7 +528,7 @@
 		},
 		{
 			"name" : "MGE_der_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -544,7 +544,7 @@
 		},
 		{
 			"name" : "MGE_der_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -560,7 +560,7 @@
 		},
 		{
 			"name" : "MGE_der_Fetal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Fetal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -576,7 +576,7 @@
 		},
 		{
 			"name" : "MGE_der_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -592,7 +592,7 @@
 		},
 		{
 			"name" : "MGE_der_Neonatal",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/MGE_der_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -608,7 +608,7 @@
 		},
 		{
 			"name" : "Micro_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Micro_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -624,7 +624,7 @@
 		},
 		{
 			"name" : "Micro_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Micro_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -640,7 +640,7 @@
 		},
 		{
 			"name" : "Micro_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Micro_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -656,7 +656,7 @@
 		},
 		{
 			"name" : "Micro_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Micro_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -672,25 +672,9 @@
 		},
 		{
 			"name" : "Oligo_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Oligo_Adolescence_atac_insertions.bigwig",
-			"sourceType" : "file",
-			"type" : "wig",
-			"noSpinner" : true,
-			"color" : "#255f85",
-			"height" : 40,
-			"autoscale" : true,
-			"autoscaleGroup" : "II",
-			"min" : 0,
-			"max" : 1,
-			"order" : 10903
-		},
-		{
-			"name" : "Oligo_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
-			"format" : "bigwig",
-			"url" : "gs://neuro-dev/Oligo_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
 			"type" : "wig",
 			"noSpinner" : true,
@@ -703,10 +687,42 @@
 			"order" : 10904
 		},
 		{
+			"name" : "Oligo_Adult",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
+			"format" : "bigwig",
+			"url" : "gs://neuro-dev/Oligo_Adult_atac_insertions.bigwig",
+			"sourceType" : "file",
+			"type" : "wig",
+			"noSpinner" : true,
+			"color" : "#255f85",
+			"height" : 40,
+			"autoscale" : true,
+			"autoscaleGroup" : "II",
+			"min" : 0,
+			"max" : 1,
+			"order" : 10905
+		},
+		{
 			"name" : "Oligo_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Oligo_Childhood_atac_insertions.bigwig",
+			"sourceType" : "file",
+			"type" : "wig",
+			"noSpinner" : true,
+			"color" : "#255f85",
+			"height" : 40,
+			"autoscale" : true,
+			"autoscaleGroup" : "II",
+			"min" : 0,
+			"max" : 1,
+			"order" : 10903
+		},
+		{
+			"name" : "Oligo_Infancy",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
+			"format" : "bigwig",
+			"url" : "gs://neuro-dev/Oligo_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
 			"type" : "wig",
 			"noSpinner" : true,
@@ -719,10 +735,10 @@
 			"order" : 10902
 		},
 		{
-			"name" : "Oligo_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"name" : "Oligo_Neonatal",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
-			"url" : "gs://neuro-dev/Oligo_Infancy_atac_insertions.bigwig",
+			"url" : "gs://neuro-dev/Oligo_Neonatal_atac_insertions.bigwig",
 			"sourceType" : "file",
 			"type" : "wig",
 			"noSpinner" : true,
@@ -736,7 +752,7 @@
 		},
 		{
 			"name" : "Vas_Adolescence",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Vas_Adolescence_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -752,7 +768,7 @@
 		},
 		{
 			"name" : "Vas_Adult",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Vas_Adult_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -768,7 +784,7 @@
 		},
 		{
 			"name" : "Vas_Childhood",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Vas_Childhood_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -784,7 +800,7 @@
 		},
 		{
 			"name" : "Vas_Infancy",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bigwig",
 			"url" : "gs://neuro-dev/Vas_Infancy_atac_insertions.bigwig",
 			"sourceType" : "file",
@@ -800,7 +816,7 @@
 		},
 		{
 			"name" : "Astro_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/Astro_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -816,7 +832,7 @@
 		},
 		{
 			"name" : "CGE_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/CGE_der_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -832,7 +848,7 @@
 		},
 		{
 			"name" : "L2_3_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/L2_3_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -848,7 +864,7 @@
 		},
 		{
 			"name" : "L4_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/L4_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -864,7 +880,7 @@
 		},
 		{
 			"name" : "L5_6_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/L5_6_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -880,7 +896,7 @@
 		},
 		{
 			"name" : "MGE_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/MGE_der_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -896,7 +912,7 @@
 		},
 		{
 			"name" : "Micro_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/Micro_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -912,7 +928,7 @@
 		},
 		{
 			"name" : "Oligo_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/Oligo_peaks_final_merge.bed",
 			"sourceType" : "file",
@@ -928,7 +944,7 @@
 		},
 		{
 			"name" : "Vas_peaks",
-			"filename" : "browser/neuro-dev-igv.json",
+			"filename" : "scatac/browser/neuro-dev-igv.json",
 			"format" : "bed",
 			"url" : "gs://neuro-dev/Vas_peaks_final_merge.bed",
 			"sourceType" : "file",

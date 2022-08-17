@@ -10,7 +10,7 @@ gsheet_path <- "https://docs.google.com/spreadsheets/d/1cUccrex6xkkyhQkaN__3xmjn
 #gsheet_path <- args[1]
 
 # Out path to json file for loading into IGV
-out_path <- "browser/neuro-dev-igv.json"
+out_path <- "snATACseq/browser/neuro-dev-igv.json"
 #out_path <- args[2]
 
 # Specify reference genome.

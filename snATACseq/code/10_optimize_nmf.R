@@ -72,7 +72,7 @@ for(i in 1:length(ranks)){
 
 # 4. run optimization step 2
 
-ranks <- seq(40L, 50L, 1L)
+ranks <- seq(11L, 17L, 1L)
 set.seed(10)
 seeds <- sample(1L:10000L, 10L)
 
@@ -85,3 +85,9 @@ for(i in 1:length(ranks)){
         run_NMF_stats(ranks[i], sam_atac, seed=x)) 
     
 }
+
+
+res1 <- lapply(res, function(x) do.call(rbind, x))
+res1 <- lapply(res1, function(x) colMeans(x))
+
+do.call(rbind, res1)

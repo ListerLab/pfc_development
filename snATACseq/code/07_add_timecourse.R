@@ -12,6 +12,7 @@ library(parallel)
 library(readxl)
 library(data.table)
 library(stringr)
+library(ArchR)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
 source("snATACseq/R/functions_timecourse.R")
@@ -21,13 +22,14 @@ source("snATACseq/R/functions_timecourse.R")
 txdb <- makeTxDbFromGFF("annotation/genes.gtf", format = "gtf")
 seqlevelsStyle(txdb) <- "UCSC"
 
-atac_samples <- read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
+atac_samples <- read_xlsx("annotation/scatac_neuronal_maturation.xlsx")
 atac_samples <- atac_samples[atac_samples$Used=="Yes",]
 
 cell_types <- c("Astro", "Vas", "L5_6", "L4", "L2_3", "Micro", "Oligo",
                 "MGE_der", "CGE_der")
+stages <- c("Fetal", "Neonatal", "Infancy", "Childhood", "Adolescence", "Adult")
 
-peak_set_all <- readRDS("snATACseq/processed_data/cell_type_atac_peaks_filtered_gr.Rds")
+peak_set_all <- readRDS("snATACseq/processed_data/cell_type_atac_peaks_filtered_gr.rds")
 names(peak_set_all) <- gsub("MGE", "MGE_der", names(peak_set_all))
 names(peak_set_all) <- gsub("CGE", "CGE_der", names(peak_set_all))
 
@@ -45,6 +47,7 @@ make_access_matrix <- function(cell_type){
     files_for_import <- all_files[grepl(cell_type, all_files)]
     files_for_import <- setdiff(files_for_import, paste0("peaks/", cell_type, 
             "_peaks_final_merge.bed"))
+    files_for_import <- files_for_import[grepl("RL", files_for_import)]
     
     all_peaks <- lapply(files_for_import, function(x) 
         import(x, format="bed"))
@@ -84,6 +87,59 @@ make_access_matrix <- function(cell_type){
 processed_data <- lapply(cell_types, function(x) make_access_matrix(x))
 names(processed_data) <- cell_types
 
+# 3. add stage accessibility 
+
+for(i in 1:length(processed_data)){
+
+    tmp <- processed_data[[i]]@elementMetadata
+    tmp <- tmp[,colnames(tmp) %in% atac_samples$Sample]
+    tmp <- as.matrix(tmp)
+    tmp <- apply(tmp, 2, function(x) as.numeric(x))
+    stages_tmp <- atac_samples$Stage[atac_samples$Sample %in% colnames(tmp)]
+    tmp <- sapply(stages, function(x) 
+    rowSums(tmp[, stages_tmp==x, drop=FALSE])>0)
+    processed_data[[i]]@elementMetadata <- cbind(
+        processed_data[[i]]@elementMetadata, tmp)
+  
+}
+
 # 3. save data
 saveRDS(processed_data, 
-    file="snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.Rds")
+    file="snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
+
+# 4. add peaks to scArchR object
+
+sc <- loadArchRProject("snATACseq/clustering_final")
+sc$Anno1 <- gsub("/", "_", sc$Anno1)
+sc$Anno1 <- gsub(" ", "_", sc$Anno1)
+
+peaks <- processed_data
+
+for(i in 1:length(peaks)){
+    
+    peaks[[i]]@elementMetadata <- peaks[[i]]@elementMetadata[, c(
+        "nearestGene", "peakType")]
+    peaks[[i]]@elementMetadata$cellType <- names(peaks)[i]
+}
+
+peaks <- unlist(as(peaks, "GRangesList"))
+peaks <- reduce(peaks)
+
+sce_atac <- readRDS("snATACseq/processed_data/umap_gene_score_rm.rds")
+
+sc <- addPeakSet(sc, peaks, force=TRUE)
+sc <- addPeakMatrix(sc)
+peak_mat <- getMatrixFromProject(sc, "PeakMatrix")
+
+index <- match(colnames(sce_atac), colnames(peak_mat))
+
+sce_atac$FRIP <- sc$FRIP
+sce_atac$ReadsInPeaks <- sc$ReadsInPeaks
+
+saveRDS(sce_atac, file="snATACseq/processed_data/umap_gene_score_rm.rds")
+
+
+
+  
+  
+

@@ -9,13 +9,13 @@ options(scipen=999)
 
 library(ArchR)
 library(SingleCellExperiment)
-library(reticulate)
 library(FNN)
 library(parallel)
 library(org.Hs.eg.db)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(edgeR)
 library(readxl)
+
 
 # 1. load ArchR project and all meta data
 
@@ -25,10 +25,10 @@ seqlevelsStyle(txdb) <- "UCSC"
 addArchRGenome("hg19")
 addArchRThreads(threads = 1)
 
-atac_samples <- read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
+atac_samples <- read_xlsx("annotation/scatac_neuronal_maturation.xlsx")
 atac_samples <- atac_samples[atac_samples$Used=="Yes",]
 
-sc <- loadArchRProject("snATACseq/clustering_annotation")
+sc <- loadArchRProject("snATAC/clustering_final")
 sc$Anno1 <- gsub(" ", "_", sc$Anno1)
 sc$Anno1 <- gsub("/", "_", sc$Anno1)
 all_cell_types <- unique(sc$Anno1)
@@ -63,6 +63,7 @@ for(i in 1:length(cellGroups)){
     }
     
 }
+
 input <- lapply(1:length(cellGroups_new), function(x) 
     lapply(names(ArrowFiles), function(y)
     if(sum(grepl(paste0(y, "#"), cellGroups_new[[x]]))>=40) 
@@ -73,17 +74,42 @@ input <- lapply(input, function(x) c(x[2],
     atac_samples$Stage[atac_samples$Sample==x[1]]))
 all_stage_types <- unique(sapply(input, function(x) paste0(x[1], "_", x[2])))
 
+saveRDS(all_stage_types, file="snATAC/processed_data/all_stage_types.rds")
 
 # 2. find random representative sample 
 
+library(reticulate)
+library(SingleCellExperiment)
+
 set.seed(10)
+
 geosketch <- import('geosketch')
 random <- import('random')
 random$seed(10)
-umap.mat <- as.matrix(sc@embeddings@listData$UMAP$df)
-umap.mat <- umap.mat[sc$Stages_Types %in% all_stage_types, ]
+sc_atac <- readRDS("tmp/umap_gene_score_rm.rds")
+all_stage_types <- readRDS("tmp/all_stage_types.rds")
+stages <- unique(sc_atac$Stage)
+all_stage_types <- c(all_stage_types, paste0(c("PN_dev"), "_", stages), 
+    paste0(c("IN_dev"), "_", stages), paste0(c("OPC"), "_", stages[-5]))
+
+annotation_cluster <- read_xlsx("tmp/scatac_clustering_annotation.xlsx", 
+                                sheet="second_clustering")
+sc_atac$Anno <- annotation_cluster$Final_Annotation[match(sc_atac$Clusters,
+          paste0("C", annotation_cluster$Cluster))]
+sc_atac$Anno <- gsub("/", "_", sc_atac$Anno)
+sc_atac$Anno <- gsub(" ", "_", sc_atac$Anno)
+sc_atac$Anno_Stage <- paste0(sc_atac$Anno, "_", sc_atac$Stage) 
+
+sc_atac <- sc_atac[,sc_atac$Anno_Stage %in% all_stage_types]
+
+random$seed(10)
+umap.mat <- as.matrix(reducedDim(sc_atac, "UMAP"))
 sketch.indices <- geosketch$gs(umap.mat, as.integer(400))
 cells.select <- rownames(umap.mat)[unlist(sketch.indices)+1]
+
+saveRDS(cells.select, file="tmp/cells_selected_geosketch.rds")
+
+cells.select <- readRDS("snATAC/processed_data/cells_selected_geosketch.rds")
 
 # 3. find 50 nearest neighbors of every picked atac-seq cell
 
@@ -112,7 +138,6 @@ cellGroups <- lapply(neighbors, function(x) rownames(pca_atac)[x])
 cellGroups <- lapply(1:length(cellGroups), function(x) c(names(cellGroups)[x],
         cellGroups[[x]]))
 
-
 getFrags_cellGroup <- function(cellGroupi) {    
     
     covList <- mclapply(getArrowFiles(sc), function(kkk) {
@@ -124,7 +149,7 @@ getFrags_cellGroup <- function(cellGroupi) {
         
         tmp <- do.call(c, tmp)
         
-    }, mc.cores=5)
+    }, mc.cores=10)
     
     covList <- covList[!sapply(covList, function(x) length(x)==0)]
     covList <- as(covList, "GRangesList")
@@ -142,18 +167,30 @@ getFrags_cellGroup <- function(cellGroupi) {
 }
 
 frags_cellGroups <- lapply(cellGroups, function(x) getFrags_cellGroup(x))
-saveRDS(frags_cellGroups, file="snATACseq/processed_data/frags_cellGroups.RDS")
-saveRDS(cellGroups, file="snATACseq/processed_data/cellGroups.RDS")
+saveRDS(frags_cellGroups, file="snATAC/processed_data/frags_cellGroups.RDS")
+saveRDS(cellGroups, file="snATAC/processed_data/cellGroups.RDS")
 
 # 5. load RNA-seq data 
 paths <- "snRNAseq/processed_data"
 sce <- readRDS(paste0(paths, 
     "/2020-12-18_RAW_whole-tissue_post-restaged-GABA-clustering.RDS"))
 
+pca_rna <- reducedDim(sce, "PCA")
+
 # 6. find matching RNA-seq cells and get expression (cpm)
 
-cellGroupsRNA <- lapply(cellGroups, function(x) 
-    sc$predictedCell[match(x, rownames(sc@cellColData))])
+cells.select.rna <- sc$predictedCell[match(cells.select, 
+  rownames(sc@cellColData))]
+query <- pca_rna[cells.select.rna,]
+
+neighbors.rna <- get.knnx(pca_rna, query, k=50, algorithm="kd_tree")
+neighbors.rna <- lapply(1:length(cells.select.rna), 
+    function(x) neighbors.rna$nn.index[x,])
+names(neighbors.rna) <- cells.select.rna
+
+cellGroupsRNA <- lapply(neighbors.rna, function(x) rownames(pca_rna)[x])
+cellGroupsRNA <- lapply(1:length(cellGroupsRNA), function(x) 
+  c(names(cellGroupsRNA)[x], cellGroupsRNA[[x]]))
 
 all_stages_rna <- lapply(cellGroupsRNA, function(x) 
     sce$stage_ids[match(x, colnames(sce))])
@@ -164,7 +201,7 @@ all_stages_rna <- lapply(all_stages_rna, function(x) {
 all_stages_rna <- unlist(all_stages_rna)
 colInfo.select$stages_rna <- all_stages_rna
 
-saveRDS(colInfo.select, file="snATACseq/processed_data/colInfo.select.RDS")
+saveRDS(colInfo.select, file="snATAC/processed_data/colInfo.select.RDS")
 
 genes_per_groups <- sapply(cellGroupsRNA, function(x) rowSums(counts(sce[,
             match(x, colnames(sce))])))
@@ -176,7 +213,7 @@ gc()
 
 # 7. get locations for genes and 250kb window around TSS
 all_peaks <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_gr.Rds")
+    "snATAC/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 all_peaks <- as(all_peaks, "GRangesList")
 all_peaks <- unlist(all_peaks, recursive = TRUE)
 
@@ -205,7 +242,7 @@ peaks_in_background <- mclapply(genes, function(x){
 
 # 9. find overlaps of peaks with gene windows and find fragments in peaks (cpm)
 
-frags_cellGroups <- readRDS("snATACseq/processed_data/frags_cellGroups.RDS")
+frags_cellGroups <- readRDS("snATAC/processed_data/frags_cellGroups.RDS")
 lib_sizes <- lengths(frags_cellGroups)
      
 getFrags_genes <- function(frags_cellGroups, peaks_in_genesi, lib_sizes) {
@@ -221,11 +258,11 @@ getFrags_genes <- function(frags_cellGroups, peaks_in_genesi, lib_sizes) {
 }
 
 frags_in_peaks <- mclapply(peaks_in_genes, function(a)
-     getFrags_genes(frags_cellGroups, a, lib_sizes), mc.cores=30)
+     getFrags_genes(frags_cellGroups, a, lib_sizes), mc.cores=15)
 frags_in_background <- mclapply(peaks_in_background, function(a)
     getFrags_genes(frags_cellGroups, a, lib_sizes), mc.cores=15)
-saveRDS(frags_in_peaks, file="snATACseq/processed_data/frags_in_peaks.RDS")
-saveRDS(frags_in_background, file="snATACseq/processed_data/frags_in_background.RDS")
+saveRDS(frags_in_peaks, file="snATAC/processed_data/frags_in_peaks.RDS")
+saveRDS(frags_in_background, file="snATAC/processed_data/frags_in_background.RDS")
 
 #10. find correlation between 
 rna_genes_pseudo_bulk <- genes_per_groups[names(frags_in_peaks),]
@@ -285,11 +322,11 @@ pearson_corr$name <- paste0(pearson_corr$Gene, "_", pearson_corr$peak_name)
 pearson_corr <- pearson_corr[!duplicated(pearson_corr$name),]
 pearson_corr_background <- clean_up(pearson_corr_background, all_peaks)
 
-saveRDS(pearson_corr, file="snATACseq/processed_data/pearson_corr.RDS")
+saveRDS(pearson_corr, file="snATAC/processed_data/pearson_corr.RDS")
 saveRDS(pearson_corr_background, 
-    file="snATACseq/processed_data/pearson_corr_background.RDS")
-pearson_corr <- readRDS("snATACseq/processed_data/pearson_corr.RDS")
-pearson_corr_background <- readRDS("snATACseq/processed_data/pearson_corr_background.RDS")
+    file="snATAC/processed_data/pearson_corr_background.RDS")
+pearson_corr <- readRDS("snATAC/processed_data/pearson_corr.RDS")
+pearson_corr_background <- readRDS("snATAC/processed_data/pearson_corr_background.RDS")
 
 # 12. find cutoff
 
@@ -327,13 +364,13 @@ min_dist <- mclapply(1:length(tmp), function(x) find_distance(tmp[x], tss),
 
 pearson_corr_sig$dist <- unlist(min_dist)
 
-saveRDS(pearson_corr_sig, file="snATACseq/processed_data/pearson_corr_sig.RDS")
+saveRDS(pearson_corr_sig, file="snATAC/processed_data/pearson_corr_sig.RDS")
 
 # 14. get out data for plotting 
 
-frags_in_peaks <- readRDS("snATACseq/proccessed_data/frags_in_peaks.RDS")
-saveRDS(rna_genes_pseudo_bulk, "snATACseq/processed_data/rna_pseudo_bulk.RDS")
-rna_genes_pseudo_bulk <- readRDS("snATACseq/processed_data/rna_pseudo_bulk.RDS")
+frags_in_peaks <- readRDS("snATAC/proccessed_data/frags_in_peaks.RDS")
+saveRDS(rna_genes_pseudo_bulk, "snATAC/processed_data/rna_pseudo_bulk.RDS")
+rna_genes_pseudo_bulk <- readRDS("snATAC/processed_data/rna_pseudo_bulk.RDS")
 
 pearson_corr_sig$Gene <- as.character(pearson_corr_sig$Gene)
 genes_sam <- unique(pearson_corr_sig$Gene)
@@ -351,5 +388,5 @@ sam_atac <- do.call(rbind, sam_atac)
 rownames(sam_atac) <- rownames(sam_rna) <- genes_sam
 
 plot_list <- list(atac=sam_atac, rna=sam_rna, info=colInfo.select)
-saveRDS(plot_list, file="snATACseq/processed_data/plot_atac_rna_corr.RDS")
+saveRDS(plot_list, file="snATAC/processed_data/plot_atac_rna_corr.RDS")
 

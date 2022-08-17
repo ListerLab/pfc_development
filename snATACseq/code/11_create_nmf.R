@@ -7,7 +7,6 @@
 ###############################################################################
 options(scipen=999)
 
-library(NMF)
 library(reticulate)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
@@ -23,7 +22,7 @@ seqlevelsStyle(txdb) <- "UCSC"
 promoters <- promoters(txdb, upstream=2000, downstream=200)
 
 peaks <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 
 peaks <- lapply(peaks, function(x) {
     hits <- findOverlaps(x, promoters)
@@ -55,7 +54,7 @@ sam_atac <- sam_atac[!duplicated(rownames(sam_atac)),]
 
 # 3. apply nmf
 
-model = sklearn$NMF(n_components=43L, init='random', 
+model = sklearn$NMF(n_components=31L, init='random', 
   random_state=0L, verbose="True", max_iter=2000L)
 W = model$fit_transform(sam_atac)
 H = model$components_
@@ -65,17 +64,15 @@ normW = apply(W, 2, function(x) x/sum(x))
 
 # 4. find distinct CREs and genes
 
-classes_new <- classes_new [!sapply(classes_new , function(x) is.na(x[1]))]
-classes_new <- sapply(classes_new, function(x) getmode(x))
-
 H_class <- def_cell_class(normH)
-
-rna_genes_pseudo_bulk <- readRDS("snATACseq/processed_data/rna_pseudo_bulk.RDS")
-sam_rna <- do.call(rbind, 
-      rna_genes_pseudo_bulk[match(rownames(sam_atac_new_mat), 
-                                  names(rna_genes_pseudo_bulk))])
-
 saveRDS(H_class, "snATACseq/processed_data/nmf_sam_H_class.RDS")
+
+o_featureScore_kim <- cal_featureScore_kim(normW)
+o_region_class <- def_region_class(normW)
+
+o_ind <- intersect(o_featureScore_kim[["selt_fs_idx"]],
+                   o_region_class[["selt_med_idx"]])
+class0 = o_region_class[['class0']][o_ind]
 
 peaks_nmf <- rownames(sam_atac)[o_ind]
 sam_atac_new <- lapply(1:length(genes_sam), function(i){
@@ -90,6 +87,12 @@ names(sam_atac_new) <- genes_sam
 sam_atac_new <- sam_atac_new[!sapply(sam_atac_new, function(x) is.na(x[1]))]
 sam_atac_new_mat <- do.call(rbind, sam_atac_new)
 
+rna_genes_pseudo_bulk <- readRDS("snATACseq/processed_data/rna_pseudo_bulk.RDS")
+
+sam_rna <- do.call(rbind, 
+      rna_genes_pseudo_bulk[match(rownames(sam_atac_new_mat), 
+                                  names(rna_genes_pseudo_bulk))])
+
 classes_new <- lapply(1:length(genes_sam), function(i){
     peaks_tmp <- which(peaks_nmf %in% peaks_sam[[i]])
     if(length(peaks_tmp)==0){
@@ -98,6 +101,10 @@ classes_new <- lapply(1:length(genes_sam), function(i){
         return(class0[peaks_tmp])
     }
 })
+
+classes_new <- classes_new [!sapply(classes_new , function(x) is.na(x[1]))]
+classes_new <- sapply(classes_new, function(x) getmode(x))
+
 
 saveRDS(list(classes_new=classes_new, sam_atac_new=sam_atac_new_mat,
              rna_seq=sam_rna),
@@ -111,13 +118,6 @@ peaks_nmf <- split(peaks_nmf$peaks_nmf, peaks_nmf$class0)
 peaks_nmf <- lapply(peaks_nmf, function(x)
     intersect(x, names(peaks)))
 saveRDS(peaks_nmf, file="snATACseq/processed_data/peaks_nmf_distinct.RDS")
-
-o_featureScore_kim <- cal_featureScore_kim(normW)
-o_region_class <- def_region_class(normW)
-
-o_ind <- intersect(o_featureScore_kim[["selt_fs_idx"]],
-                   o_region_class[["selt_med_idx"]])
-class0 = o_region_class[['class0']][o_ind]
 
 peaks_max_mod <- split(rownames(sam_atac), o_region_class[['class0']])
 peaks_max_mod <- lapply(peaks_max_mod, function(x)

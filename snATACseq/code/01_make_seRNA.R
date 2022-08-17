@@ -30,5 +30,5 @@ genes <- genes[ind,]
 seRNA <- SummarizedExperiment(assays=SimpleList(counts=counts(sce)), 
      rowRanges=genes, colData=colData(sce))
 
-saveRDS(seRNA, file="snRNAseq/processed_data/snRNAseq_SE.RDS")
+saveRDS(seRNA, file="snRNAseq/processed_data/scrna_sum_exp.rds")
 

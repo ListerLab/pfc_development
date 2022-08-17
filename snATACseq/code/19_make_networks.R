@@ -1,19 +1,17 @@
 # Make network
 
-Sys.setenv(RETICULATE_MINICONDA_PATH="/home/sfreytag/working_data_03/programmes/razor/miniconda3")
 library(scater)
 library(qusage)
 library(parallel)
 library(reticulate)
 
-use_condaenv("reticulate")
 np <- import("numpy")
 sklearn <- import("sklearn.linear_model")
 
-motif_positions <- readRDS("snATACseq/clustering_annotation/Annotations/Motif-Positions-In-Peaks.rds")
+motif_positions <- readRDS("snATACseq/clustering_final/Annotations/Motif-Positions-In-Peaks.rds")
 
 peaks <- readRDS(
-    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_stage_CRE_gr.Rds")
+    "snATACseq/processed_data/cell_type_atac_peaks_filtered_anno_gr.rds")
 peaks <- peaks[-2]
 for(i in 1:length(peaks)){
     
@@ -60,9 +58,9 @@ for(ii in 1:length(peaks)){
 
 names(all_networks) <- names(peaks)
 
-saveRDS(all_networks, file="snATACseq/processed_data/All_networks.Rds")
+saveRDS(all_networks, file="snATACseq/processed_data/all_networks.rds")
 
-cell_types <- c(L4="L4_RORB", L5_6="L5/6_TL4", L5_6="L5/6_THEMIS",
+cell_types <- c(L4="L4_RORB", L5_6="L5/6_TLE4", L5_6="L5/6_THEMIS",
                 L2_3="L2/3_CUX2")
 
 run_linear_model <- function(target_gene, all_networks, sce) {
@@ -78,12 +76,13 @@ run_linear_model <- function(target_gene, all_networks, sce) {
     model_br$fit(x, y)
     coef_mean = model_br$coef_
     coef_var = diag(model_br$sigma_)
-    pvalue <- pnorm(abs(coef_mean), mean=0, sd=sqrt(coef_var), lower.tail=FALSE)*2
+    pvalue <- pnorm(abs(coef_mean), mean=0, sd=sqrt(coef_var), 
+      lower.tail=FALSE)*2
     
     if(sum(pvalue<0.05)>0){
         
         res <- data.frame(tfs=predictors[pvalue<0.05], target=target_gene,
-                          strength=coef_mean[pvalue<0.05], pvalue=pvalue[pvalue<0.05])
+            strength=coef_mean[pvalue<0.05], pvalue=pvalue[pvalue<0.05])
         return(res)
         
     } else {
@@ -93,13 +92,12 @@ run_linear_model <- function(target_gene, all_networks, sce) {
 }
 
 
-for(i in 1:length(cell_types)){
+for(i in 2:length(cell_types)){
 
-    all_networks <- readRDS("snATACseq/processed_data/All_networks.Rds")
+    all_networks <- readRDS("snATACseq/processed_data/all_networks.rds")
     all_networks <- all_networks[[names(cell_types)[i]]]
-    tf_cell_type <- readRDS("snATACseq/processed_data/tf_cell_type_rna.RDS")
-    tf_cell_type <- lapply(tf_cell_type, function(x) names(x)[!x==0])
-    tf_cell_type <- tf_cell_type[[names(cell_types)[i]]]
+    tf_cell_type <- readRDS("snATACseq/processed_data/tf_not_cell_type_rna.RDS")
+    tf_cell_type <- tf_cell_type[[cell_types[i]]]
     gc()
     
     all_networks[,2] <- toupper(all_networks[,2])
@@ -109,8 +107,8 @@ for(i in 1:length(cell_types)){
 
     ind <- mclapply(tmp_tf, function(x) match(x, 
         tf_cell_type), mc.cores=2)
-    tf_not<- names(ind)[sapply(ind, function(x) any(is.na(x)))]
-    all_networks <- all_networks[!all_networks[,2] %in% tf_not,]
+    keep <- names(ind)[sapply(ind, function(x) all(is.na(x)))]
+    all_networks <- all_networks[all_networks[,2] %in% keep,]
     tmp <- mclapply(1:dim(all_networks)[1], function(x) {
         a <- strsplit(all_networks[x,2], "..", fixed=T)[[1]]
         cbind(all_networks[x,1], a)
@@ -121,7 +119,7 @@ for(i in 1:length(cell_types)){
     rm(tmp)
     gc()
 
-    go_terms <- read.gmt("annotation/hsapiens.GO:BP.name.gmt")
+    go_terms <- read.gmt("annotation/hsapiens.GO_BP.name.gmt")
     gos <- c(Ensheatment="GO:0007272")
     ind <- which(names(go_terms) %in% gos)
     go_ids <- go_terms[ind][[1]]
@@ -140,16 +138,16 @@ for(i in 1:length(cell_types)){
      mc.cores=10)
     res_infancy <- res_infancy[!sapply(res_infancy, function(x) is.null(x))]
     res_infancy <- do.call(rbind, res_infancy)
-    saveRDS(res_infancy, file=paste0("Infancy_Network_Ensheatment_",
-    cell_types[i], ".RDS"))
+    saveRDS(res_infancy, file=paste0("snATACseq/processed_data/",
+    "infancy_network_ensheatment_", gsub("/", "_", cell_types[i]), ".rds"))
     res_adolescence <- mclapply(target_genes, function(x) 
         run_linear_model(x, all_networks, sce[,sce$stage_ids=="Adolescence"]),
         mc.cores=10)
     res_adolescence <- res_adolescence[!sapply(res_adolescence, 
         function(x) is.null(x))]
     res_adolescence <- do.call(rbind, res_adolescence)
-    saveRDS(res_adolescence, file=paste0("Adolescence_Network_Ensheatment_",
-    cell_types[i], ".RDS"))
+    saveRDS(res_adolescence, file=paste0("snATACseq/processed_data/",
+    "adolescence_network_ensheatment_", gsub("/", "_", cell_types[i]), ".rds"))
 }
 
 

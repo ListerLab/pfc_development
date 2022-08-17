@@ -17,9 +17,9 @@ addArchRThreads(threads = 1)
 source("snATACseq/R/functions_peak_calling.R")
 
 # 1. read in data
-sc <- loadArchRProject("snATACseq/clustering_annotation")
+sc <- loadArchRProject("snATACseq/clustering_final")
 
-atac_samples <- read_xlsx("annotation/scATACseq_neuronal_maturation.xlsx")
+atac_samples <- read_xlsx("annotation/scatac_neuronal_maturation.xlsx")
 atac_samples <- atac_samples[atac_samples$Used=="Yes",]
 
 sc$Anno1 <- gsub(" ", "_", sc$Anno1)
@@ -92,5 +92,21 @@ make_bed_stages <- function(cellGroup, input, atac_samples){
 
 
 mclapply(names(input), function(x) make_bed_stages(x, input, 
-    atac_samples), mc.cores=1)
+    atac_samples), mc.cores=3)
+
+files <- list.files()
+
+for(i in 1:length(files)){
+  
+  system(paste0("bedtools sort -i ",  files[i], " > ",
+    gsub(".bed", "_sorted.bed", files[i])))
+
+  system(paste0("bedtools genomecov -i ", gsub(".bed", "_sorted.bed", files[i]), 
+    " -g ../../../annotation/hg19.chrom.sizes > ", 
+    gsub(".bed", ".bedgraph", files[i])))
+   
+  system(paste0("../../bedGraphToBigWig ", gsub(".bed", ".bedgraph", files[i]),
+      " ../../../annotation/hg19.chrom.sizes ", gsub(".bed", ".bw", files[i])))
+  
+}
 

@@ -1,19 +1,16 @@
 ###############################################################################
 #                                                                             #
 #                                                                             #
-# Make ATAC peak normalied insertion matricies                                #
+# Make ATAC peak normalized insertion matricies                               #
 #                                                                             #
 #                                                                             #    
 ###############################################################################
 options(scipen=999)
 
-library(bsseq)
 library(GenomicRanges)
 library(stringr)
 library(magrittr)
 library(data.table)
-library(GenomicFeatures)
-library(ggplot2)
 library(ggrepel)
 library(reshape2)
 library(rtracklayer)
@@ -25,7 +22,7 @@ library(parallel)
 library(BSgenome.Hsapiens.UCSC.hg19)
 
 # 1. list of files
-peak_list <- list.files(path = "peaks", pattern = ".bed",
+peak_list <- list.files(path = "snATACseq/peaks", pattern = ".bed",
                         full.names = TRUE)
 peak_list <- peak_list[!grepl(pattern = "_RL", x = peak_list)]
 
@@ -96,4 +93,4 @@ peak_mat_list <- lapply(cell_types, count_peak_olaps)
 names(peak_mat_list) <- cell_types
 
 # 3. save peak counts as Rds object
-saveRDS(peak_mat_list, "snATACseq/processed_data/atac_peak_counts.Rds")
+saveRDS(peak_mat_list, "snATACseq/processed_data/atac_peak_counts.rds")
