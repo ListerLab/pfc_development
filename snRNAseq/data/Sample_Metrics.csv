@@ -1,0 +1,29 @@
+,RL#,Sample ID,Age,Sex,Race,PMI,Brain Regions*,Cause of Death,ICD-10 Code,ICD-10 category,Oxygen/No Oxygen,Date-of-Collection,Collection_year,Library Prep Date,Library Prep Lot
+1,RL2103,1085,ga22,M,AA,5,BA9,Respiratory Insufficiency,108,Perinatal,Oxygen,,,28.03.2020,1
+2,RL2107,4320,ga24,M,AA,9,BA9,"Prematurity, Hyaline membrane disease",108,Perinatal,No Oxygen,,,28.03.2020,1
+3,RL2121,5900,ga34,F,White,23,BA9,Hypoplatic Left Heart Syndrome,108,Perinatal,No Oxygen,11.01.2015,2015,16.04.2020,2
+5,RL1777,4375,2d,F,White,26,BA8,Positional asphyxia,R090,Asphyxia,Oxygen,7.22.2013,2013,27.06.2019,4
+6,RL1612,4353,34d,M,AA,5,BA9,Probably overlay,R090,Asphyxia,Oxygen,10.04.2011,2011,20.11.2018,5
+7,RL2100,4400,86d,M,White,13,BA9,Positional Asphyxia,R090,Asphyxia,Oxygen,10.09.2014,2014,20.03.2020,6
+8,RL2104,4413,118d,F,AA,21,BA9,Complication of Left Ventricular Noncompaction,142,Circulatory System,No oxygen,11.18.2015,2015,28.03.2020,7
+9,RL2108,5947,179d,M,White,11,BA9,Asphyxia,R090,Asphyxia,Oxygen,02.04.2016,2016,28.03.2020,7
+10,RL1778,4376,200d,M,White,25,BA8,Probably Asphyxiation,R090,Asphyxia,Oxygen,08.15.2011,2011,27.06.2019,4
+11,RL2122,1671,301d,M,AA,18,BA9,Hyperthermia,R68,Hyperthermia,Oxygen,12.11.2002,2002,16.04.2020,2
+12,RL2125,4395,1yr (422d),F,AA,20,BA8,Coarctation of aorta,Q25.1,Cardiac,No oxygen,08.05.2015,2015,24.04.2020,8
+13,RL2105,5180,1.5yr (627d),M,White,25,BA9,Drowning,120,Drowning,Oxygen,06.02.2008,2008,28.03.2020,7
+14,RL1786,5871,2yr (758d),M,White,12,BA8,Drowning,120,Drowning,Oxygen,04.14.2015,2015,05.07.2019,9
+15,RL1613,5871,2yr (758d),M,White,12,BA8,Drowning,120,Drowning,Oxygen,04.14.2015,2015,20.11.2018,5
+16,RL2129,4394,3yr,F,White,12,BA9,Fever,R50.9,Illness,No oxygen,11.04.2015,2015,24.04.2020,8
+17,RL2109,6032,4 yr,M,White,25,BA46,Head and Neck Injuries,112,Accident,No oxygen,08.05.2016,2016,28.03.2020,7
+18,RL2106,5408,6.5yr,M,AA,16,BA46,Drowning,120,Drowning,Oxygen,09.12.2010,2010,28.03.2020,7
+19,RL1614,4337,8 yr,M,AA,16,BA9,Blunt force neck injury,112,Accident,No oxygen,,,20.11.2018,5
+20,RL2126,5161,10yr,F,AA,22,BA9,Hanging,124,Suicide,Oxygen,11.02.1991,1991,24.04.2020,8
+21,RL2110,6175,10yr,M,AA,15,BA9,Hanging,124,Suicide,Oxygen,05.01.2018,2018,28.03.2020,7
+22,RL2127,5387,12yr,M,White,13,BA9,Drowning,120,Drowning,Oxygen,06.07.2010,2010,24.04.2020,8
+23,RL2130,5936,14yr,F,AA,23,BA9,Status Asthmaticus,82,Respiratory,Oxygen,12.01.2015,2015,24.04.2020,8
+24,RL2102,5935,16yr,F,White,23,BA10,Hanging,124,Suicide,Oxygen,11.30.2015,2015,28.03.2020,7
+25,RL2131,1078,17yr,F,White,12,BA8,"Accident, Multiple Injuries",112,Accident,No oxygen,09.04.1999,1999,24.04.2020,8
+26,RL2128,55,20yr,F,White,17,BA8,"Accident, Multiple Injuries",112,Accident,No oxygen,08.14.1992,1992,24.04.2020,8
+27,RL2123,1541,20yr,F,White,19,BA8,Head Injuries,112,Accident,No oxygen,03.26.2002,2002,16.04.2020,2
+28,RL2132,5751,25yr,F,AA,24,BA10,Occlusive Pulmonary Thromboembolism,126,Circulatory System,No oxygen,04.30.2014,2014,24.04.2020,8
+29,RL2124,5396,40yr,M,White,9,BA9,Hemopericardium/ Aortic Dissection,171,Cardiac,No oxygen,09.08.2010,2010,16.04.2020,2
