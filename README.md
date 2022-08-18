@@ -15,7 +15,6 @@ at `\annotation\Renaming_tables.xlsx`.
 | `\snATACseq`  | Analysis pertaining to snATAC-seq |
 | `\snATACseq\code`  | Code for analysis of snATAC-seq |
 | `\snATACseq\browser`  | Code for interactive browser |
-| `\snATACseq\GEO_upload`  | Code for GEO upload |
 | `\snATACseq\R`  | Code for frequently used helper functions |
 | `\snRNAseq`  | Analysis pertaining to snRNA-seq |
 | `\snRNAseq\code`  | Code for analysis of snRNA-seq |
