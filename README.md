@@ -1,7 +1,7 @@
 # Human prefrontal cortex development map repository
 
 This repository contains the code and supporting information necessary to 
-reproduce the analysis accompanying the manuscript "Molecular dynamics of the human prefrontal cortex from gestation to adulthood". 
+reproduce the analysis accompanying the manuscript "Human prefrontal cortex gene regulatory dynamics from gestation to adulthood at single-cell resolution". 
 
 Note that names of modules and clusters in main and supplementary figures 
 of the manuscript have occassionally be changed for readability. A table to 
